@@ -1,25 +1,22 @@
-import { Text } from '@chakra-ui/react'
+import { Heading } from '@chakra-ui/react'
 
 interface TitleLineProps {
   text: string
-  fontFamily: string
 }
 
-function TitleLine({ text, fontFamily }: TitleLineProps) {
+function TitleLine({ text }: TitleLineProps) {
   return (
-    <Text fontFamily={fontFamily} fontSize="xl" color="#8FBCBB">
+    <Heading fontSize="2xl" color="#B48EAD">
       {text}
-    </Text>
+    </Heading>
   )
 }
 
 function Title() {
-  const fontFamily = 'Arvo'
-
   return (
     <>
-      <TitleLine text="Jaime" fontFamily={fontFamily} />
-      <TitleLine text="Abbariao" fontFamily={fontFamily} />
+      <TitleLine text="Jaime" />
+      <TitleLine text="Abbariao" />
     </>
   )
 }

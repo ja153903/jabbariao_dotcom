@@ -43,10 +43,8 @@ const Writing: NextPage = () => {
           ))}
         </OrderedList>
       </Section>
-      <Section title="Other Stuff">
-        <Text color="#BF616A" size="md">
-          Nothing here yet
-        </Text>
+      <Section title="Misc.">
+        <Text size="md">Nothing here yet</Text>
       </Section>
     </PageContainer>
   )

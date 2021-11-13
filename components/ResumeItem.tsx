@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Text, Heading } from '@chakra-ui/react'
 
 interface ResumeItemProps {
   title: string
@@ -15,8 +15,10 @@ function ResumeItem({
 }: ResumeItemProps) {
   return (
     <Box mb={isLastItem ? '0' : '20px'}>
-      <Text fontSize="2xl">{title}</Text>
-      <Text fontStyle="italic">{subTitle}</Text>
+      <Heading fontSize="xl">{title}</Heading>
+      <Text fontStyle="italic" color="#D8DEE9">
+        {subTitle}
+      </Text>
       <Text>{description}</Text>
     </Box>
   )

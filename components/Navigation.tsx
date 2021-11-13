@@ -1,48 +1,27 @@
 import { useRouter } from 'next/router'
-import { Flex, Link as ChakraLink } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Flex } from '@chakra-ui/react'
+
+import NavigationLink from './NavigationLink'
+
+const sitePaths = [
+  { href: '/', label: 'About' },
+  { href: '/resume', label: 'Resume' },
+  { href: '/writing', label: 'Writing' },
+]
 
 function Navigation() {
-  const router = useRouter()
-
-  const getTextDecoration = (path: string): string =>
-    router.pathname === path ? 'underline' : 'none'
-
-  const getActiveColor = (path: string): string =>
-    router.pathname === path ? '#A3BE8C' : '#ECEFF4'
+  const { pathname } = useRouter()
 
   return (
     <Flex direction="column" marginTop="20px">
-      <Link href="/" passHref>
-        <ChakraLink
-          sx={{
-            textDecoration: getTextDecoration('/'),
-            color: getActiveColor('/'),
-          }}
-        >
-          About
-        </ChakraLink>
-      </Link>
-      <Link href="/resume" passHref>
-        <ChakraLink
-          sx={{
-            textDecoration: getTextDecoration('/resume'),
-            color: getActiveColor('/resume'),
-          }}
-        >
-          Resume
-        </ChakraLink>
-      </Link>
-      <Link href="/writing" passHref>
-        <ChakraLink
-          sx={{
-            textDecoration: getTextDecoration('/writing'),
-            color: getActiveColor('/writing'),
-          }}
-        >
-          Writing
-        </ChakraLink>
-      </Link>
+      {sitePaths.map(({ href, label }) => (
+        <NavigationLink
+          key={`${href}-${label}`}
+          href={href}
+          label={label}
+          pathname={pathname}
+        />
+      ))}
     </Flex>
   )
 }

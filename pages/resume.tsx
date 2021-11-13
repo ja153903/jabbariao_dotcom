@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
 
-import { Text, Box, UnorderedList, ListItem } from '@chakra-ui/react'
-
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
 import ResumeItem from '../components/ResumeItem'
+import ResumeListItem from '../components/ResumeListItem'
 
 const Resume: NextPage = () => {
   return (
@@ -36,36 +35,27 @@ const Resume: NextPage = () => {
         />
       </Section>
       <Section title="Technologies I Know">
-        <Box mb="20px">
-          <Text fontSize="2xl">Programming Languages</Text>
-          <UnorderedList>
-            <ListItem>Python, TypeScript, JavaScript, Java, Rust, Lua</ListItem>
-          </UnorderedList>
-        </Box>
-        <Box mb="20px">
-          <Text fontSize="2xl">Databases</Text>
-          <UnorderedList>
-            <ListItem>PostgreSQL, MySQL, MongoDB, CockroachDB</ListItem>
-          </UnorderedList>
-        </Box>
-        <Box mb="20px">
-          <Text fontSize="2xl">Libraries and Frameworks</Text>
-          <UnorderedList>
-            <ListItem>
-              React, Redux, MobX, MobX State Tree, Express, Prisma
-            </ListItem>
-            <ListItem>Django, Flask, FastAPI, SQLAlchemy</ListItem>
-            <ListItem>Spring, Hibernate</ListItem>
-          </UnorderedList>
-        </Box>
-        <Box>
-          <Text fontSize="2xl">Other Technologies</Text>
-          <UnorderedList>
-            <ListItem>
-              Neovim, Git, Docker, AWS, Celery, Kafka, RabbitMQ
-            </ListItem>
-          </UnorderedList>
-        </Box>
+        <ResumeListItem
+          title="Programming Languages"
+          items={['Python, TypeScript, JavaScript, Java, Rust, Lua']}
+        />
+        <ResumeListItem
+          title="Databases"
+          items={['PostgreSQL, MySQL, MongoDB, CockroachDB']}
+        />
+        <ResumeListItem
+          title="Libraries and Frameworks"
+          items={[
+            'React, Redux, MobX, MobX State Tree, Express, Prisma',
+            'Django, Flask, FastAPI, SQLAlchemy',
+            'Spring, Hibernate',
+          ]}
+        />
+        <ResumeListItem
+          title="Other Technologies"
+          items={['Neovim, Git, Docker, AWS, Celery, Kafka, RabbitMQ']}
+          isLast
+        />
       </Section>
     </PageContainer>
   )
