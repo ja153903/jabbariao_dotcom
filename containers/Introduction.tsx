@@ -6,7 +6,7 @@ import Title from '../components/Title'
 
 function Introduction() {
   return (
-    <Flex direction="column">
+    <Flex direction="column" maxW="container.xl">
       <Title />
       <Biography />
       <Navigation />

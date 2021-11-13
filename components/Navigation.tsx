@@ -8,20 +8,38 @@ function Navigation() {
   const getTextDecoration = (path: string): string =>
     router.pathname === path ? 'underline' : 'none'
 
+  const getActiveColor = (path: string): string =>
+    router.pathname === path ? '#A3BE8C' : '#ECEFF4'
+
   return (
     <Flex direction="column" marginTop="20px">
       <Link href="/">
-        <ChakraLink sx={{ textDecoration: getTextDecoration('/') }}>
+        <ChakraLink
+          sx={{
+            textDecoration: getTextDecoration('/'),
+            color: getActiveColor('/'),
+          }}
+        >
           ABOUT
         </ChakraLink>
       </Link>
       <Link href="/resume">
-        <ChakraLink sx={{ textDecoration: getTextDecoration('/resume') }}>
+        <ChakraLink
+          sx={{
+            textDecoration: getTextDecoration('/resume'),
+            color: getActiveColor('/resume'),
+          }}
+        >
           RESUME
         </ChakraLink>
       </Link>
       <Link href="/writing">
-        <ChakraLink sx={{ textDecoration: getTextDecoration('/writing') }}>
+        <ChakraLink
+          sx={{
+            textDecoration: getTextDecoration('/writing'),
+            color: getActiveColor('/writing'),
+          }}
+        >
           WRITING
         </ChakraLink>
       </Link>

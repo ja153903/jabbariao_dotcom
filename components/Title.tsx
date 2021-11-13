@@ -7,19 +7,19 @@ interface TitleLineProps {
 
 function TitleLine({ text, fontFamily }: TitleLineProps) {
   return (
-    <Text fontFamily={fontFamily} fontSize="2xl">
+    <Text fontFamily={fontFamily} fontSize="xl" color="#8FBCBB">
       {text}
     </Text>
   )
 }
 
 function Title() {
-  const fontFamily = 'Roboto Mono'
+  const fontFamily = 'Arvo'
 
   return (
     <>
-      <TitleLine text="JAI." fontFamily={fontFamily} />
-      <TitleLine text="ABB." fontFamily={fontFamily} />
+      <TitleLine text="Jaime" fontFamily={fontFamily} />
+      <TitleLine text="Abbariao" fontFamily={fontFamily} />
     </>
   )
 }

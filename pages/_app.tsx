@@ -1,3 +1,4 @@
+import '@fontsource/arvo'
 import '@fontsource/fira-code'
 import '@fontsource/roboto-mono'
 
