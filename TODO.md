@@ -1,0 +1,1 @@
+- [x] Husky and Prettier set-up
