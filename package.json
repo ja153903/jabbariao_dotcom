@@ -5,7 +5,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext .ts,.tsx"
+    "lint": "eslint --ext .ts,.tsx,.js",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
+    "prepare": "husky install",
+    "test": "jest"
   },
   "dependencies": {
     "next": "12.0.3",
@@ -13,20 +20,26 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
     "@types/node": "16.11.7",
     "@types/react": "17.0.34",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
+    "babel-jest": "^27.3.1",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.3",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
+    "husky": "^7.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.3.1",
     "prettier": "^2.4.1",
     "pretty-quick": "^3.1.1",
-    "typescript": "4.4.4"
+    "react-test-renderer": "^17.0.2",
+    "typescript": "^4.4.4"
   },
   "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint"
-     }
-  },
+    "hooks": {}
+  }
 }
