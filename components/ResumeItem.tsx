@@ -7,9 +7,14 @@ interface ResumeItemProps {
   isLastItem?: boolean
 }
 
-function ResumeItem({ title, subTitle, description, isLastItem = false }: ResumeItemProps) {
+function ResumeItem({
+  title,
+  subTitle,
+  description,
+  isLastItem = false,
+}: ResumeItemProps) {
   return (
-    <Box mb={isLastItem ? "0" : "20px"}>
+    <Box mb={isLastItem ? '0' : '20px'}>
       <Text fontSize="2xl">{title}</Text>
       <Text fontStyle="italic">{subTitle}</Text>
       <Text>{description}</Text>

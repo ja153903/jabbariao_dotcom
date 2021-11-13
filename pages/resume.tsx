@@ -51,7 +51,9 @@ const Resume: NextPage = () => {
         <Box mb="20px">
           <Text fontSize="2xl">Libraries and Frameworks</Text>
           <UnorderedList>
-            <ListItem>React, Redux, MobX, MobX State Tree, Express, Prisma</ListItem>
+            <ListItem>
+              React, Redux, MobX, MobX State Tree, Express, Prisma
+            </ListItem>
             <ListItem>Django, Flask, FastAPI, SQLAlchemy</ListItem>
             <ListItem>Spring, Hibernate</ListItem>
           </UnorderedList>
@@ -59,7 +61,9 @@ const Resume: NextPage = () => {
         <Box>
           <Text fontSize="2xl">Other Technologies</Text>
           <UnorderedList>
-            <ListItem>Neovim, Git, Docker, AWS, Celery, Kafka, RabbitMQ</ListItem>
+            <ListItem>
+              Neovim, Git, Docker, AWS, Celery, Kafka, RabbitMQ
+            </ListItem>
           </UnorderedList>
         </Box>
       </Section>
