@@ -17,7 +17,7 @@ const Resume: NextPage = () => {
         />
         <ResumeItem
           title="E*TRADE"
-          subTitle="Software Engineer I, Jul. 2019 - Mar. 2021"
+          subTitle="Software Engineer II, Jul. 2019 - Mar. 2021"
           description="Worked on guided investing and portfolio analytics software in React and Spring"
           isLastItem
         />

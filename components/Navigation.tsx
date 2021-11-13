@@ -13,7 +13,7 @@ function Navigation() {
 
   return (
     <Flex direction="column" marginTop="20px">
-      <Link href="/">
+      <Link href="/" passHref>
         <ChakraLink
           sx={{
             textDecoration: getTextDecoration('/'),
@@ -23,7 +23,7 @@ function Navigation() {
           About
         </ChakraLink>
       </Link>
-      <Link href="/resume">
+      <Link href="/resume" passHref>
         <ChakraLink
           sx={{
             textDecoration: getTextDecoration('/resume'),
@@ -33,7 +33,7 @@ function Navigation() {
           Resume
         </ChakraLink>
       </Link>
-      <Link href="/writing">
+      <Link href="/writing" passHref>
         <ChakraLink
           sx={{
             textDecoration: getTextDecoration('/writing'),
