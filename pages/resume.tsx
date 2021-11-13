@@ -4,12 +4,12 @@ import { Text } from '@chakra-ui/react'
 
 import PageContainer from '../components/PageContainer'
 
-const About: NextPage = () => {
+const Resume: NextPage = () => {
   return (
     <PageContainer>
-      <Text>This is the about page</Text>
+      <Text>This is the resume page</Text>
     </PageContainer>
   )
 }
 
-export default About
+export default Resume
