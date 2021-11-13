@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import { ListItem, OrderedList, Link } from '@chakra-ui/react'
+import { ListItem, OrderedList, Link, Text } from '@chakra-ui/react'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
@@ -42,6 +42,11 @@ const Writing: NextPage = () => {
             </ListItem>
           ))}
         </OrderedList>
+      </Section>
+      <Section title="Other Stuff">
+        <Text color="#BF616A" size="md">
+          Nothing here yet
+        </Text>
       </Section>
     </PageContainer>
   )

@@ -20,7 +20,7 @@ function Navigation() {
             color: getActiveColor('/'),
           }}
         >
-          ABOUT
+          About
         </ChakraLink>
       </Link>
       <Link href="/resume">
@@ -30,7 +30,7 @@ function Navigation() {
             color: getActiveColor('/resume'),
           }}
         >
-          RESUME
+          Resume
         </ChakraLink>
       </Link>
       <Link href="/writing">
@@ -40,7 +40,7 @@ function Navigation() {
             color: getActiveColor('/writing'),
           }}
         >
-          WRITING
+          Writing
         </ChakraLink>
       </Link>
     </Flex>
