@@ -10,7 +10,7 @@ function Resume() {
         <ResumeItem
           title="BentoBox"
           subTitle="Software Engineer II, Mar. 2021 - Present"
-          description="Building technology with React and Django for restaurants to thrive online and in-stores"
+          description="Building technology with React and Django to enable restaurants to thrive online"
         />
         <ResumeItem
           title="E*TRADE"
@@ -35,16 +35,17 @@ function Resume() {
       <Section title="Technologies I Know">
         <ResumeListItem
           title="Programming Languages"
-          items={['Python, TypeScript, JavaScript, Java, Rust, Lua']}
+          items={['Python, TypeScript, JavaScript', 'Java, Rust, Lua, C']}
         />
         <ResumeListItem
           title="Databases"
-          items={['PostgreSQL, MySQL, MongoDB, CockroachDB']}
+          items={['Relational: PostgreSQL, MySQL', 'NoSQL: MongoDB']}
         />
         <ResumeListItem
           title="Libraries and Frameworks"
           items={[
-            'React, Redux, MobX, MobX State Tree, Express, Prisma',
+            'React, Redux, MobX, Express, Prisma',
+            'Next.js, Material UI, Chakra UI, Apollo GraphQL',
             'Django, Flask, FastAPI, SQLAlchemy',
             'Spring, Hibernate',
           ]}
