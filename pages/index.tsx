@@ -1,11 +1,9 @@
-import type { NextPage } from 'next'
-
 import { Text, Link } from '@chakra-ui/react'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
 
-const About: NextPage = () => {
+function About() {
   return (
     <PageContainer>
       <Section title="What am I currently working on?">

@@ -1,10 +1,6 @@
 import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react'
 
-interface ResumeListItemProps {
-  title: string
-  items: string[]
-  isLast?: boolean
-}
+import { ResumeListItemProps } from '../@types'
 
 function ResumeListItem({ title, items, isLast = false }: ResumeListItemProps) {
   return (

@@ -1,11 +1,9 @@
-import type { NextPage } from 'next'
-
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
 import ResumeItem from '../components/ResumeItem'
 import ResumeListItem from '../components/ResumeListItem'
 
-const Resume: NextPage = () => {
+function Resume() {
   return (
     <PageContainer>
       <Section title="Experience">

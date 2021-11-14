@@ -1,9 +1,6 @@
 import { Heading, Box } from '@chakra-ui/react'
 
-interface SectionProps {
-  title: string
-  children: React.ReactNode
-}
+import { SectionProps } from '../@types'
 
 function Section({ children, title }: SectionProps) {
   return (

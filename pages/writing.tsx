@@ -1,15 +1,14 @@
-import type { NextPage } from 'next'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
 
-import { ListItem, OrderedList, Link, Text } from '@chakra-ui/react'
+import { ListItem, OrderedList, Link } from '@chakra-ui/react'
+
+import { MediumArticle, WritingProps } from '../@types'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
-
-interface MediumArticle {
-  url: string
-  name: string
-  publishedDate: string
-}
+import BlogPostPreview from '../components/BlogPostPreview'
 
 const mediumArticles: Array<MediumArticle> = [
   {
@@ -29,7 +28,7 @@ const mediumArticles: Array<MediumArticle> = [
   },
 ]
 
-const Writing: NextPage = () => {
+function Writing({ posts }: WritingProps) {
   return (
     <PageContainer>
       <Section title="Medium Articles">
@@ -43,11 +42,31 @@ const Writing: NextPage = () => {
           ))}
         </OrderedList>
       </Section>
-      <Section title="Misc.">
-        <Text size="md">Nothing here yet</Text>
+      <Section title="Misc. Writing">
+        <BlogPostPreview posts={posts ?? []} />
       </Section>
     </PageContainer>
   )
+}
+
+export async function getStaticProps() {
+  const files = fs.readdirSync(path.join('static_files/posts'))
+
+  const posts = files.map((filename) => {
+    const markdownWithMeta = fs.readFileSync(
+      path.join('static_files/posts', filename)
+    )
+    const { data: frontMatter } = matter(markdownWithMeta)
+
+    return {
+      frontMatter,
+      slug: filename.split('.')[0],
+    }
+  })
+
+  return {
+    props: { posts },
+  }
 }
 
 export default Writing

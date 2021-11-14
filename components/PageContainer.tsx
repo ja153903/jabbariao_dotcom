@@ -1,8 +1,6 @@
 import { Container } from '@chakra-ui/react'
 
-interface PageContainerProps {
-  children: React.ReactNode
-}
+import { PageContainerProps } from '../@types'
 
 function PageContainer({ children }: PageContainerProps) {
   return <Container maxW="container.xl">{children}</Container>

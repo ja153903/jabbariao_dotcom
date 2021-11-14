@@ -1,11 +1,6 @@
 import { Box, Text, Heading } from '@chakra-ui/react'
 
-interface ResumeItemProps {
-  title: string
-  subTitle: string
-  description: string
-  isLastItem?: boolean
-}
+import { ResumeItemProps } from '../@types'
 
 function ResumeItem({
   title,
