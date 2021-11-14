@@ -11,7 +11,7 @@ const getTextDecoration = (href: string, pathname: string): string =>
   pathname === href ? 'underline' : 'none'
 
 const getActiveColor = (href: string, pathname: string): string =>
-  pathname === href ? '#A3BE8C' : '#ECEFF4'
+  pathname === href ? '#8FBCBB' : '#ECEFF4'
 
 function NavigationLink({ href, label, pathname }: NavigationLinkProps) {
   const sx = {
@@ -21,7 +21,9 @@ function NavigationLink({ href, label, pathname }: NavigationLinkProps) {
 
   return (
     <Link href={href} passHref>
-      <ChakraLink sx={sx}>{label}</ChakraLink>
+      <ChakraLink sx={sx} _hover={{ color: '#8FBCBB' }}>
+        {label}
+      </ChakraLink>
     </Link>
   )
 }
