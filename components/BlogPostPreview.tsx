@@ -10,7 +10,7 @@ function BlogPostPreview({ posts }: BlogPostPreviewProps) {
         <ListItem key={post.slug}>
           <Link href={`/blog/${post.slug}`} passHref>
             <ChakraLink _hover={{ color: '#8FBCBB' }}>
-              {post.frontMatter.title}
+              {post.frontMatter.title} ({post.frontMatter.date})
             </ChakraLink>
           </Link>
         </ListItem>
