@@ -7,6 +7,7 @@ import Head from 'next/head'
 import { ChakraProvider, Container, Flex } from '@chakra-ui/react'
 
 import Introduction from '../containers/Introduction'
+import ScrollToTopButton from '../components/ScrollToTopButton'
 
 import theme from '../themes'
 
@@ -21,6 +22,7 @@ function App({ Component, pageProps }: AppProps) {
           <Introduction />
           <Component {...pageProps} />
         </Flex>
+        <ScrollToTopButton />
       </Container>
     </ChakraProvider>
   )
