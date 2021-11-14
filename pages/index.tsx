@@ -21,12 +21,12 @@ const About: NextPage = () => {
         </Text>
         <Text mb="10px" maxW="600px">
           I spent undergrad and grad school figuring out how machine learning
-          works, but in the end, I decided I wanted to build and scale
+          works, but in the end, I decided I wanted to build scalable
           applications instead.
         </Text>
         <Text mb="10px" maxW="600px">
           These days, you can find me working on side-projects in TypeScript or
-          tinkering with my Neovim configuration for the millionth time.
+          tinkering with my Neovim configuration
         </Text>
         <Text maxW="600px">
           I also take photos. You can find my work on{' '}
