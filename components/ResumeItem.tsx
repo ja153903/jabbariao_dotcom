@@ -1,6 +1,6 @@
 import { Box, Text, Heading } from '@chakra-ui/react'
 
-import { ResumeItemProps } from '../@types'
+import type { ResumeItemProps } from '../@types'
 
 function ResumeItem({
   title,

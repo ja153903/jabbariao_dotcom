@@ -5,23 +5,17 @@ import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 
+import type { BlogPageProps } from '../../@types'
+
 import PageContainer from '../../components/PageContainer'
 import Section from '../../components/Section'
-
-interface FrontMatter {
-  title: string
-}
-
-interface BlogPageProps {
-  frontMatter: FrontMatter
-  mdxSource: any
-}
+import SyntaxHighlighter from '../../components/SyntaxHighlighter'
 
 function BlogPage({ frontMatter: { title }, mdxSource }: BlogPageProps) {
   return (
     <PageContainer>
-      <Section title={title}>
-        <MDXRemote {...mdxSource} />
+      <Section title={title} sx={{ maxW: '600px' }}>
+        <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
       </Section>
     </PageContainer>
   )

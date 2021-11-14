@@ -9,6 +9,13 @@ const sitePaths = [
   { href: '/writing', label: 'Writing' },
 ]
 
+const mapBlogToWriting = (pathname: string): string =>
+  pathname.includes('blog') ? '/writing' : pathname
+
+const preprocessPaths = (pathname: string): string => {
+  return mapBlogToWriting(pathname)
+}
+
 function Navigation() {
   const { pathname } = useRouter()
 
@@ -19,7 +26,7 @@ function Navigation() {
           key={`${href}-${label}`}
           href={href}
           label={label}
-          pathname={pathname}
+          pathname={preprocessPaths(pathname)}
         />
       ))}
     </Flex>

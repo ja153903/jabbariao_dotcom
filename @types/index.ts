@@ -54,10 +54,21 @@ export interface ResumeListItemProps {
 }
 
 export interface SectionProps {
-  title: string
-  children: React.ReactNode
+  title?: string
+  children?: React.ReactNode
+  sx?: object
 }
 
 export interface TitleLineProps {
   text: string
+}
+
+export interface BlogPageProps {
+  frontMatter: FrontMatter
+  mdxSource: any
+}
+
+export interface SyntaxHighlighterProps {
+  language?: string
+  children: React.ReactNode
 }
