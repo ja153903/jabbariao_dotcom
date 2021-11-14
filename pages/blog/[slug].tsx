@@ -14,7 +14,7 @@ import SyntaxHighlighter from '../../components/SyntaxHighlighter'
 function BlogPage({ frontMatter: { title }, mdxSource }: BlogPageProps) {
   return (
     <PageContainer>
-      <Section title={title} sx={{ maxW: '600px' }}>
+      <Section title={title}>
         <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
       </Section>
     </PageContainer>
