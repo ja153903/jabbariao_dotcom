@@ -36,7 +36,7 @@ const Writing: NextPage = () => {
         <OrderedList>
           {mediumArticles.map((article, index) => (
             <ListItem key={`${article.url}-${index}`}>
-              <Link href={article.url} isExternal>
+              <Link href={article.url} isExternal _hover={{ color: '#8FBCBB' }}>
                 {article.name} (published on {article.publishedDate})
               </Link>
             </ListItem>
