@@ -22,12 +22,12 @@ function Resume() {
       <Section title="Education">
         <ResumeItem
           title="New York University"
-          subTitle="M.S. Computer Science, GPA: 3.9, Jan. 2018 - Jan. 2020"
+          subTitle="M.S. Computer Science, Jan. 2018 - Jan. 2020"
           description="Fiddled with ML, Distributed Systems, and Databases"
         />
         <ResumeItem
           title="Baruch College, CUNY"
-          subTitle="B.A. Mathematics, GPA: 3.94, Jan. 2014 - Jul. 2017"
+          subTitle="B.A. Mathematics, Jan. 2014 - Jul. 2017"
           description="Did lots of stuff related to probability and numerical analysis"
           isLastItem
         />
