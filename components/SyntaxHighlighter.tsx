@@ -8,7 +8,7 @@ import type { SyntaxHighlighterProps } from '../@types'
 function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
   return (
     <Box
-      maxW="xl"
+      maxW="sm"
       marginTop="20px"
       marginBottom="20px"
       rounded="xl"
