@@ -7,8 +7,9 @@ function ScrollToTopButton() {
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop
+    const height = document.documentElement.scrollHeight
 
-    setVisible(scrolled > 0)
+    setVisible(scrolled > height / 4)
   }
 
   const handleOnClick = () => {
