@@ -14,7 +14,7 @@ function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
       rounded="xl"
       boxShadow="dark-lg"
     >
-      <ReactSyntaxHighlighter language={language} style={nord} showLineNumbers>
+      <ReactSyntaxHighlighter language={language} style={nord}>
         {children}
       </ReactSyntaxHighlighter>
     </Box>
