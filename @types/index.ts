@@ -72,3 +72,7 @@ export interface SyntaxHighlighterProps {
   language?: string
   children: React.ReactNode
 }
+
+export interface GitHubContributionChartProps {
+  contributions?: object[]
+}
