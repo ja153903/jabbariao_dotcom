@@ -2,6 +2,7 @@ import { Text, Link } from '@chakra-ui/react'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
+import { Frost } from '../themes'
 
 function About() {
   return (
@@ -12,7 +13,7 @@ function About() {
       <Section title="About Me">
         <Text mb="10px" maxW="600px">
           I am Jaime Abbariao. Currently working as a software engineer at{' '}
-          <Link href="https://getbento.com" color="#8FBCBB" isExternal>
+          <Link href="https://getbento.com" color={Frost.Nord7} isExternal>
             BentoBox
           </Link>
           .
@@ -30,7 +31,7 @@ function About() {
           I also take photos. You can find my work on{' '}
           <Link
             href="https://www.instagram.com/jaimeabbariao/"
-            color="#8FBCBB"
+            color={Frost.Nord7}
             isExternal
           >
             Instagram
@@ -40,7 +41,7 @@ function About() {
       <Section title="Contact">
         <Text maxW="600px">
           Feel free to contact me at{' '}
-          <Link href="mailto:jaimeabbariao@gmail.com" color="#8FBCBB">
+          <Link href="mailto:jaimeabbariao@gmail.com" color={Frost.Nord7}>
             jaimeabbariao@gmail.com
           </Link>{' '}
           for any business inquiries

@@ -9,6 +9,7 @@ import type { MediumArticle, WritingProps } from '../@types'
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
 import BlogPostPreview from '../components/BlogPostPreview'
+import { Frost } from '../themes'
 
 const mediumArticles: Array<MediumArticle> = [
   {
@@ -35,7 +36,11 @@ function Writing({ posts }: WritingProps) {
         <OrderedList>
           {mediumArticles.map((article, index) => (
             <ListItem key={`${article.url}-${index}`}>
-              <Link href={article.url} isExternal _hover={{ color: '#8FBCBB' }}>
+              <Link
+                href={article.url}
+                isExternal
+                _hover={{ color: Frost.Nord7 }}
+              >
                 {article.name} (published on {article.publishedDate})
               </Link>
             </ListItem>
