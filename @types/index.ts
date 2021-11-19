@@ -76,3 +76,7 @@ export interface SyntaxHighlighterProps {
 export interface GitHubContributionChartProps {
   contributions?: object[]
 }
+
+export interface MDXComponentProps {
+  children: React.ReactNode
+}

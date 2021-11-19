@@ -6,7 +6,7 @@ import { Aurora } from '../themes'
 function Section({ children, title, sx }: SectionProps) {
   return (
     <Box mb="50" sx={sx}>
-      <Heading size="lg" marginBottom="10px" color={Aurora.Nord15}>
+      <Heading size="xl" marginBottom="10px" color={Aurora.Nord15}>
         {title}
       </Heading>
       {children}

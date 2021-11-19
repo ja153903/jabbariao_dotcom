@@ -47,7 +47,7 @@ function Writing({ posts }: WritingProps) {
           ))}
         </OrderedList>
       </Section>
-      <Section title="Misc. Writing">
+      <Section title="Other Pieces">
         <BlogPostPreview posts={posts ?? []} />
       </Section>
     </PageContainer>
