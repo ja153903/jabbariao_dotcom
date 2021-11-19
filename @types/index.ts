@@ -78,5 +78,5 @@ export interface GitHubContributionChartProps {
 }
 
 export interface MDXComponentProps {
-  children: React.ReactNode
+  children?: React.ReactNode
 }

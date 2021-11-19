@@ -2,25 +2,27 @@ import { Heading, Text } from '@chakra-ui/react'
 
 import { MDXComponentProps } from '../@types'
 
-export default {
-  h1: ({ children }: MDXComponentProps) => (
+const MDXComponents = {
+  h1: (props: MDXComponentProps) => (
     <Heading as="h1" size="xl">
-      {children}
+      {props.children}
     </Heading>
   ),
-  h2: ({ children }: MDXComponentProps) => (
+  h2: (props: MDXComponentProps) => (
     <Heading as="h2" size="lg">
-      {children}
+      {props.children}
     </Heading>
   ),
-  h3: ({ children }: MDXComponentProps) => (
+  h3: (props: MDXComponentProps) => (
     <Heading as="h3" size="md">
-      {children}
+      {props.children}
     </Heading>
   ),
-  p: ({ children }: MDXComponentProps) => (
+  p: (props: MDXComponentProps) => (
     <Text as="p" size="md">
-      {children}
+      {props.children}
     </Text>
   ),
 }
+
+export default MDXComponents
