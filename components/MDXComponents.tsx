@@ -1,6 +1,7 @@
 import { Heading, Text } from '@chakra-ui/react'
 
 import { MDXComponentProps } from '../@types'
+import SyntaxHighlighter from './SyntaxHighlighter'
 
 const MDXComponents = {
   h1: (props: MDXComponentProps) => (
@@ -22,6 +23,11 @@ const MDXComponents = {
     <Text as="p" size="md">
       {props.children}
     </Text>
+  ),
+  code: (props: MDXComponentProps) => (
+    <SyntaxHighlighter language={props.language}>
+      {props.children}
+    </SyntaxHighlighter>
   ),
 }
 

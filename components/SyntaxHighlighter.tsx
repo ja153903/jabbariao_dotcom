@@ -7,14 +7,14 @@ import type { SyntaxHighlighterProps } from '../@types'
 
 function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
   return (
-    <Box
-      maxW="lg"
-      marginTop="20px"
-      marginBottom="20px"
-      rounded="xl"
-      boxShadow="dark-lg"
-    >
-      <ReactSyntaxHighlighter language={language} style={nord}>
+    <Box maxW="md" marginY="20px" boxShadow="dark-lg">
+      <ReactSyntaxHighlighter
+        language={language}
+        style={nord}
+        customStyle={{
+          padding: 20,
+        }}
+      >
         {children}
       </ReactSyntaxHighlighter>
     </Box>

@@ -69,6 +69,13 @@ export async function getStaticProps() {
     }
   })
 
+  posts.sort((a, b) => {
+    const aDate: any = new Date(a.frontMatter['sort-date'])
+    const bDate: any = new Date(b.frontMatter['sort-date'])
+
+    return bDate - aDate
+  })
+
   return {
     props: { posts },
   }

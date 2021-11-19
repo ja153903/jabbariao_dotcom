@@ -79,4 +79,5 @@ export interface GitHubContributionChartProps {
 
 export interface MDXComponentProps {
   children?: React.ReactNode
+  language?: string
 }
