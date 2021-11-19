@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-import { Box } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 
@@ -16,9 +16,9 @@ function BlogPage({ frontMatter: { title }, mdxSource }: BlogPageProps) {
   return (
     <PageContainer>
       <Section title={title}>
-        <Box maxW="600px">
+        <Flex direction="column">
           <MDXRemote {...mdxSource} components={{ SyntaxHighlighter }} />
-        </Box>
+        </Flex>
       </Section>
     </PageContainer>
   )
