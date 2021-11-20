@@ -41,6 +41,32 @@ const theme = extendTheme({
     heading: 'Arvo',
     body: 'Arvo',
   },
+  colors: {
+    polarnight: {
+      100: PolarNight.Nord0,
+      200: PolarNight.Nord1,
+      300: PolarNight.Nord2,
+      400: PolarNight.Nord3,
+    },
+    snowstorm: {
+      100: SnowStorm.Nord4,
+      200: SnowStorm.Nord5,
+      300: SnowStorm.Nord6,
+    },
+    frost: {
+      100: Frost.Nord7,
+      200: Frost.Nord8,
+      300: Frost.Nord9,
+      400: Frost.Nord10,
+    },
+    aurora: {
+      100: Aurora.Nord11,
+      200: Aurora.Nord12,
+      300: Aurora.Nord13,
+      400: Aurora.Nord14,
+      500: Aurora.Nord15,
+    },
+  },
 })
 
 export default theme

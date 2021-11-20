@@ -2,13 +2,12 @@ import { Link as ChakraLink } from '@chakra-ui/react'
 import Link from 'next/link'
 
 import type { NavigationLinkProps } from '../@types'
-import { Frost, SnowStorm } from '../themes'
 
 const getTextDecoration = (href: string, pathname: string): string =>
   pathname === href ? 'underline' : 'none'
 
 const getActiveColor = (href: string, pathname: string): string =>
-  pathname === href ? Frost.Nord7 : SnowStorm.Nord6
+  pathname === href ? 'frost.100' : 'snowstorm.300'
 
 function NavigationLink({ href, label, pathname }: NavigationLinkProps) {
   const sx = {
@@ -18,7 +17,7 @@ function NavigationLink({ href, label, pathname }: NavigationLinkProps) {
 
   return (
     <Link href={href} passHref>
-      <ChakraLink sx={sx} _hover={{ color: Frost.Nord7 }}>
+      <ChakraLink sx={sx} _hover={{ color: 'frost.100' }}>
         {label}
       </ChakraLink>
     </Link>

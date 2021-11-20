@@ -9,7 +9,6 @@ import type { MediumArticle, WritingProps } from '../@types'
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
 import BlogPostPreview from '../components/BlogPostPreview'
-import { Frost } from '../themes'
 
 const mediumArticles: Array<MediumArticle> = [
   {
@@ -39,7 +38,7 @@ function Writing({ posts }: WritingProps) {
               <Link
                 href={article.url}
                 isExternal
-                _hover={{ color: Frost.Nord7 }}
+                _hover={{ color: 'frost.100' }}
               >
                 {article.name} (published on {article.publishedDate})
               </Link>

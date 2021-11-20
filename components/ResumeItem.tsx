@@ -1,7 +1,6 @@
 import { Box, Text, Heading } from '@chakra-ui/react'
 
 import type { ResumeItemProps } from '../@types'
-import { SnowStorm } from '../themes'
 
 function ResumeItem({
   title,
@@ -12,7 +11,7 @@ function ResumeItem({
   return (
     <Box mb={isLastItem ? '0' : '20px'}>
       <Heading fontSize="xl">{title}</Heading>
-      <Text fontStyle="italic" color={SnowStorm.Nord4}>
+      <Text fontStyle="italic" color="snowstorm.100">
         {subTitle}
       </Text>
       <Text>{description}</Text>

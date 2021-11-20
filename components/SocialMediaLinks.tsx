@@ -1,10 +1,9 @@
 import { ButtonGroup, IconButton } from '@chakra-ui/react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
-import { Aurora } from '../themes'
 
 function SocialMediaLinks() {
   return (
-    <ButtonGroup variant="outline" color={Aurora.Nord15}>
+    <ButtonGroup variant="outline" color="aurora.500">
       <IconButton
         as="a"
         href="https://www.linkedin.com/in/jaime-louis-abbariao-972a1399/"

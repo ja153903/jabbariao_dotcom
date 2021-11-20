@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Link as ChakraLink, OrderedList, ListItem } from '@chakra-ui/react'
 
 import type { BlogPostPreviewProps } from '../@types'
-import { Frost } from '../themes'
 
 function BlogPostPreview({ posts }: BlogPostPreviewProps) {
   return (
@@ -10,7 +9,7 @@ function BlogPostPreview({ posts }: BlogPostPreviewProps) {
       {posts.map((post) => (
         <ListItem key={post.slug}>
           <Link href={`/blog/${post.slug}`} passHref>
-            <ChakraLink _hover={{ color: Frost.Nord7 }}>
+            <ChakraLink _hover={{ color: 'frost.100' }}>
               {post.frontMatter.title} ({post.frontMatter.date})
             </ChakraLink>
           </Link>
