@@ -18,7 +18,7 @@ function BlogPage({ frontMatter: { title, tags }, mdxSource }: BlogPageProps) {
   return (
     <PageContainer>
       <Section title={title}>
-        <Flex direction="column" justifyContent="center">
+        <Flex direction="column" justifyContent="center" mb="50px">
           <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
           <Tags tags={tags ?? []} />
         </Flex>
