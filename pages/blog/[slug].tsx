@@ -11,13 +11,19 @@ import type { BlogPageProps } from '../../@types'
 import PageContainer from '../../components/PageContainer'
 import Section from '../../components/Section'
 import MDXComponents from '../../components/MDXComponents'
+import NavigationLink from '../../components/NavigationLink'
+import Tags from '../../components/Tags'
 
-function BlogPage({ frontMatter: { title }, mdxSource }: BlogPageProps) {
+function BlogPage({ frontMatter: { title, tags }, mdxSource }: BlogPageProps) {
   return (
     <PageContainer>
       <Section title={title}>
         <Flex direction="column" justifyContent="center">
           <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
+          <Tags tags={tags ?? []} />
+        </Flex>
+        <Flex align="center" justifyContent="center">
+          <NavigationLink href="/writing" label="Back to list" pathname="" />
         </Flex>
       </Section>
     </PageContainer>
