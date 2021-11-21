@@ -1,0 +1,57 @@
+---
+title: Prefer Creating New Components to Rendering Them in Sub-functions
+date: November 20, 2021
+sort-date: '2021-11-20'
+---
+
+## So what am I even talking about in my title?
+
+Early on in my career writing React, I came across this pattern of writing components.
+
+```javascript
+function Parent() {
+  const renderChildren = () => {
+    return (
+      <div>
+        <h2>Rendering something here</h2>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <h1>Rendering the parent component</h1>
+      {renderChildren()}
+    </div>
+  )
+}
+```
+
+Now theoretically, there is nothing wrong with this. It's completely valid React to write,
+but I believe we can also consider this an anti-pattern in React.
+
+In React, we want to create atomic and re-usable components so having a render sub-function
+goes against that principle.
+
+## So what should we do?
+
+```javascript
+function Children() {
+  return (
+    <div>
+      <h2>Rendering something here</h2>
+    </div>
+  )
+}
+
+function Parent() {
+  return (
+    <div>
+      <h1>Rendering the parent component</h1>
+      <Children />
+    </div>
+  )
+}
+```
+
+The ideal pattern is **to create another component with the content in the render sub-function**.
