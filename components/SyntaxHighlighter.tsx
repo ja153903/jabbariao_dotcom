@@ -7,7 +7,7 @@ import type { SyntaxHighlighterProps } from '../@types'
 
 function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
   return (
-    <Flex mb="30px" boxShadow="dark-lg">
+    <Flex mb="30px" boxShadow="dark-lg" borderRadius="15px">
       <ReactSyntaxHighlighter
         language={language}
         style={nord}
@@ -15,6 +15,7 @@ function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
         customStyle={{
           padding: 20,
           width: '100%',
+          borderRadius: '15px',
         }}
       >
         {children}
