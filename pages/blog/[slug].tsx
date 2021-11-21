@@ -10,18 +10,14 @@ import type { BlogPageProps } from '../../@types'
 
 import PageContainer from '../../components/PageContainer'
 import Section from '../../components/Section'
-import SyntaxHighlighter from '../../components/SyntaxHighlighter'
 import MDXComponents from '../../components/MDXComponents'
 
 function BlogPage({ frontMatter: { title }, mdxSource }: BlogPageProps) {
   return (
     <PageContainer>
       <Section title={title}>
-        <Flex direction="column">
-          <MDXRemote
-            {...mdxSource}
-            components={{ SyntaxHighlighter, ...MDXComponents }}
-          />
+        <Flex direction="column" justifyContent="center">
+          <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
         </Flex>
       </Section>
     </PageContainer>
