@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 
 function Introduction() {
   return (
-    <Flex direction="column" maxW="container.xl">
+    <Flex direction="column" maxW="2xl">
       <Title />
       <Biography />
       <Navigation />

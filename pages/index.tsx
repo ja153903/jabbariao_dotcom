@@ -7,7 +7,7 @@ function About() {
   return (
     <PageContainer>
       <Section title="What am I currently working on?">
-        <Text>Writing articles on TypeScript and JavaScript!</Text>
+        <Text>Experimenting with GraphQL, Prisma, and Fastify</Text>
       </Section>
       <Section title="About Me">
         <Text mb="10px" maxW="600px">

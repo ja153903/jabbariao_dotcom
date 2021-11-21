@@ -1,13 +1,13 @@
 import ReactSyntaxHighlighter from 'react-syntax-highlighter'
 import { nord } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
-import { Flex } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 
 import type { SyntaxHighlighterProps } from '../@types'
 
 function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
   return (
-    <Flex mb="30px" boxShadow="dark-lg" borderRadius="15px">
+    <Box mb="30px" boxShadow="dark-lg" borderRadius="15px">
       <ReactSyntaxHighlighter
         language={language}
         style={nord}
@@ -20,7 +20,7 @@ function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
       >
         {children}
       </ReactSyntaxHighlighter>
-    </Flex>
+    </Box>
   )
 }
 
