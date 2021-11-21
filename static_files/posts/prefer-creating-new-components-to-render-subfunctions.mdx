@@ -1,5 +1,5 @@
 ---
-title: Prefer Creating New Components to Rendering Them in Sub-functions
+title: Create new components. Don't render them in sub-functions
 date: November 20, 2021
 sort-date: '2021-11-20'
 ---
@@ -7,6 +7,7 @@ sort-date: '2021-11-20'
 ## So what am I even talking about in my title?
 
 Early on in my career writing React, I came across this pattern of writing components.
+Even I'm guilty of writing components like this.
 
 ```javascript
 function Parent() {
@@ -35,6 +36,10 @@ goes against that principle.
 
 ## So what should we do?
 
+If we want to make sure that we're writing re-usable and composable UI with React, then what
+we can do is create a new component. This allows us to isolate the use-case for a component
+and potentially use it in other parts of the codebase.
+
 ```javascript
 function Children() {
   return (
@@ -54,4 +59,4 @@ function Parent() {
 }
 ```
 
-The ideal pattern is **to create another component with the content in the render sub-function**.
+TLDR: The ideal pattern is **to always create another component with the content that you would intuitively want to render in some sub-function**.
