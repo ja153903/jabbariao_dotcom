@@ -11,6 +11,7 @@ function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
       <ReactSyntaxHighlighter
         language={language}
         style={nord}
+        showLineNumbers
         customStyle={{
           padding: 20,
           width: '100%',
