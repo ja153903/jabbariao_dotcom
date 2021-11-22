@@ -4,7 +4,11 @@ import matter from 'gray-matter'
 
 import { ListItem, OrderedList, Link } from '@chakra-ui/react'
 
-import type { BlogPostPreviewProps, IMediumArticle, WritingProps } from '../@types'
+import type {
+  BlogPostPreviewProps,
+  IMediumArticle,
+  WritingProps,
+} from '../@types'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
