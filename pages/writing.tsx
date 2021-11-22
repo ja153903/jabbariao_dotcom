@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 
 import { ListItem, OrderedList, Link } from '@chakra-ui/react'
 
-import type { IMediumArticle, WritingProps } from '../@types'
+import type { BlogPostPreviewProps, IMediumArticle, WritingProps } from '../@types'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
@@ -28,27 +28,35 @@ const mediumArticles: Array<IMediumArticle> = [
   },
 ]
 
+function MediumArticles() {
+  return (
+    <Section title="Medium Articles">
+      <OrderedList>
+        {mediumArticles.map((article, index) => (
+          <ListItem key={`${article.url}-${index}`}>
+            <Link href={article.url} isExternal _hover={{ color: 'frost.100' }}>
+              {article.name} (published on {article.publishedDate})
+            </Link>
+          </ListItem>
+        ))}
+      </OrderedList>
+    </Section>
+  )
+}
+
+function BlogPreviewSection({ posts }: BlogPostPreviewProps) {
+  return (
+    <Section title="Other Pieces">
+      <BlogPostPreview posts={posts ?? []} />
+    </Section>
+  )
+}
+
 function Writing({ posts }: WritingProps) {
   return (
     <PageContainer>
-      <Section title="Medium Articles">
-        <OrderedList>
-          {mediumArticles.map((article, index) => (
-            <ListItem key={`${article.url}-${index}`}>
-              <Link
-                href={article.url}
-                isExternal
-                _hover={{ color: 'frost.100' }}
-              >
-                {article.name} (published on {article.publishedDate})
-              </Link>
-            </ListItem>
-          ))}
-        </OrderedList>
-      </Section>
-      <Section title="Other Pieces">
-        <BlogPostPreview posts={posts ?? []} />
-      </Section>
+      <MediumArticles />
+      <BlogPreviewSection posts={posts ?? []} />
     </PageContainer>
   )
 }
