@@ -59,3 +59,8 @@ export interface MDXComponentProps {
   children?: React.ReactNode
   language?: string
 }
+
+export interface BlogContentProps {
+  mdxSource: any
+  tags?: string[]
+}

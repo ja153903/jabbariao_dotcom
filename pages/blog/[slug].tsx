@@ -6,7 +6,7 @@ import { Flex } from '@chakra-ui/react'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 
-import type { BlogPageProps } from '../../@types'
+import type { BlogPageProps, BlogContentProps } from '../../@types'
 
 import PageContainer from '../../components/PageContainer'
 import Section from '../../components/Section'
@@ -14,17 +14,29 @@ import MDXComponents from '../../components/MDXComponents'
 import NavigationLink from '../../components/NavigationLink'
 import Tags from '../../components/Tags'
 
+function BackToList() {
+  return (
+    <Flex align="center" justifyContent="center">
+      <NavigationLink href="/writing" label="Back to list" pathname="" />
+    </Flex>
+  )
+}
+
+function BlogContent({ mdxSource, tags }: BlogContentProps) {
+  return (
+    <Flex direction="column" justifyContent="center" mb="50px">
+      <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
+      <Tags tags={tags ?? []} />
+    </Flex>
+  )
+}
+
 function BlogPage({ frontMatter: { title, tags }, mdxSource }: BlogPageProps) {
   return (
     <PageContainer>
       <Section title={title}>
-        <Flex direction="column" justifyContent="center" mb="50px">
-          <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
-          <Tags tags={tags ?? []} />
-        </Flex>
-        <Flex align="center" justifyContent="center">
-          <NavigationLink href="/writing" label="Back to list" pathname="" />
-        </Flex>
+        <BlogContent mdxSource={mdxSource} tags={tags} />
+        <BackToList />
       </Section>
     </PageContainer>
   )
