@@ -8,25 +8,25 @@ function SocialMediaLinks() {
         as="a"
         href="https://www.linkedin.com/in/jaime-louis-abbariao-972a1399/"
         aria-label="LinkedIn"
-        icon={<FaLinkedin fontSize="20px" />}
+        icon={<FaLinkedin fontSize="15px" />}
         target="_blank"
-        size="md"
+        size="sm"
       />
       <IconButton
         as="a"
         href="https://github.com/ja153903"
         aria-label="GitHub"
-        icon={<FaGithub fontSize="20px" />}
+        icon={<FaGithub fontSize="15px" />}
         target="_blank"
-        size="md"
+        size="sm"
       />
       <IconButton
         as="a"
         href="https://twitter.com/ja153903"
         aria-label="Twitter"
-        icon={<FaTwitter fontSize="20px" />}
+        icon={<FaTwitter fontSize="15px" />}
         target="_blank"
-        size="md"
+        size="sm"
       />
     </ButtonGroup>
   )
