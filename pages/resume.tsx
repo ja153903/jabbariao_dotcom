@@ -3,10 +3,6 @@ import Section from '../components/Section'
 import ResumeItem from '../components/ResumeItem'
 import ResumeListItem from '../components/ResumeListItem'
 
-// TODO: Create a better way of showing my profiency with some of the programming languages
-// TODO: Create pills for programming languages for each ResumeItem
-// TODO: It would be a good idea to give a profiency meter for each ResumeListItem
-
 function Resume() {
   return (
     <PageContainer>
@@ -39,7 +35,7 @@ function Resume() {
       <Section title="Technologies I Know">
         <ResumeListItem
           title="Programming Languages"
-          items={['Python, TypeScript, JavaScript', 'Java, Rust, Lua, C']}
+          items={['Python, JavaScript, TypeScript', 'Java, Rust, Lua, C']}
         />
         <ResumeListItem
           title="Databases"
