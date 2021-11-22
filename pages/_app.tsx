@@ -17,7 +17,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Jaime Abbariao</title>
       </Head>
-      <Container paddingTop="20px" minW="2xl">
+      <Container paddingTop="20px" minW="container.xl">
         <Flex align="flex-start" justify="flex-start">
           <Introduction />
           <Component {...pageProps} />
