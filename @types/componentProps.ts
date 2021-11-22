@@ -1,11 +1,11 @@
-import { BlogPost, FrontMatter } from './interfaces'
+import { IBlogPost, IFrontMatter } from './interfaces'
 
 export interface WritingProps {
-  posts?: BlogPost[]
+  posts?: IBlogPost[]
 }
 
 export interface BlogPostPreviewProps {
-  posts: BlogPost[]
+  posts: IBlogPost[]
 }
 
 export interface NavigationLinkProps {
@@ -42,7 +42,7 @@ export interface TitleLineProps {
 }
 
 export interface BlogPageProps {
-  frontMatter: FrontMatter
+  frontMatter: IFrontMatter
   mdxSource: any
 }
 

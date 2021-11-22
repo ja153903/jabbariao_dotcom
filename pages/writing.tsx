@@ -4,13 +4,13 @@ import matter from 'gray-matter'
 
 import { ListItem, OrderedList, Link } from '@chakra-ui/react'
 
-import type { MediumArticle, WritingProps } from '../@types'
+import type { IMediumArticle, WritingProps } from '../@types'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
 import BlogPostPreview from '../components/BlogPostPreview'
 
-const mediumArticles: Array<MediumArticle> = [
+const mediumArticles: Array<IMediumArticle> = [
   {
     url: 'https://javascript.plainenglish.io/resolving-lsps-for-deno-projects-in-neovim-1728583edde9',
     name: 'Resolving LSPs for Deno Projects in Neovim',

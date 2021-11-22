@@ -1,17 +1,17 @@
-export interface MediumArticle {
+export interface IMediumArticle {
   url: string
   name: string
   publishedDate: string
 }
 
-export interface FrontMatter {
+export interface IFrontMatter {
   title?: string
   date?: string
   description?: string
   tags?: string[]
 }
 
-export interface BlogPost {
+export interface IBlogPost {
   slug: string
-  frontMatter: FrontMatter
+  frontMatter: IFrontMatter
 }
