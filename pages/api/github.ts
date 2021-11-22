@@ -43,7 +43,10 @@ async function retrieveContributionData(username: string | string[]) {
   return res.json()
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+async function fetchGithubContribution(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { username } = req.query
 
   const contributionData = await retrieveContributionData(username)
@@ -52,3 +55,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   return res.json(contributionData)
 }
+
+export default fetchGithubContribution
