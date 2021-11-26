@@ -1,0 +1,99 @@
+---
+title: Simple Async Loading with useEffect
+date: November 26, 2021
+sort-date: '2021-11-26'
+tags: ['react', 'javascript']
+---
+
+## Something I've noticed
+
+When interviewing candidates, we like doing a pair programming problem that involves
+loading data from some mock data source into local React state.
+
+For some reason, this tends to stump a number of candidates as they don't necessarily
+know where the appropriate place to load the data is.
+
+## Common approach I've seen
+
+One candidate decided to do the following:
+
+```javascript
+function App() {
+  const [transactions, setTransactions] = useState([])
+
+  fetchTransactions().then(({ data }) => {
+    setTransactions(data)
+  })
+  // ...omitting rest of the code
+}
+```
+
+This approach seems like an intuitive way to do this, but there are
+some issues with this approach.
+
+One such issue revolves around the cleanup of the component. Suppose that the async call
+takes a long time, and during the time that the call is made, the component unmounts.
+
+Then once the call is finally finished, we try to set state with the data.
+
+This will result in a potential memory leak since React cannot update state
+on an unmounted component.
+
+Another fundamental issue is that in React documentation it is stated that
+
+`All React components must act like pure functions with respect to their props`
+
+This means that we should not run side-effects like directly in the function (since
+the function itself acts as the render function)
+
+## Ideal approach
+
+The ideal approach we want to see from candidates is to create use the `React.useEffect` hook.
+
+Why do we want to use this hook? We want to use the `React.useEffect` hook because it allows us
+to manage side-effects in functional components which is exactly what we needed in the previous example.
+
+So a slightly improved version of the code above would look something like:
+
+```javascript
+function App() {
+  const [transactions, setTransactions] = useState([])
+
+  React.useEffect(() => {
+    fetchTransactions().then(({ data }) => {
+      setTransactions(data)
+    })
+  }, [])
+  // ...omitting rest of the code
+}
+```
+
+We can iterate on this a bit more and take advantage of `async/await` syntax
+
+```javascript
+function App() {
+  const [transactions, setTransactions] = useState([])
+
+  async function fetchTransactionsFromApi() {
+    let response;
+
+    try {
+      response = await fetchTransactions()
+    } except {
+      // something bad happened
+    }
+
+    if (response) {
+      const { data } = response
+      setTransactions(data)
+    }
+  }
+
+  React.useEffect(() => {
+    fetchTransactionsFromApi()
+  }, [])
+  // ...omitting rest of the code
+}
+```
+
+Also note that the empty dependency array in the `React.useEffect` function denotes that we want this hook to be run when the component is mounted
