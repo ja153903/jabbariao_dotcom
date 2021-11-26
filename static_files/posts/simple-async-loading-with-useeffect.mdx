@@ -24,7 +24,16 @@ function App() {
   fetchTransactions().then(({ data }) => {
     setTransactions(data)
   })
-  // ...omitting rest of the code
+
+  return (
+    <div>
+      <ul>
+        {transactions.map((transaction, index) => (
+          <li key={transaction.id}>{transaction.id}</li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 ```
 
@@ -64,7 +73,16 @@ function App() {
       setTransactions(data)
     })
   }, [])
-  // ...omitting rest of the code
+
+  return (
+    <div>
+      <ul>
+        {transactions.map((transaction, index) => (
+          <li key={transaction.id}>{transaction.id}</li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 ```
 
@@ -92,7 +110,17 @@ function App() {
   React.useEffect(() => {
     fetchTransactionsFromApi()
   }, [])
-  // ...omitting rest of the code
+
+  return (
+    <div>
+      <ul>
+        {transactions.map((transaction, index) => (
+          <li key={transaction.id}>{transaction.id}</li>
+        ))
+        }
+      </ul>
+    </div>
+  )
 }
 ```
 
