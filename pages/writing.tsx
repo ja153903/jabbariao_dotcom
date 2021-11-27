@@ -35,7 +35,7 @@ const mediumArticles: Array<IMediumArticle> = [
 function MediumArticles() {
   return (
     <Section title="Medium Articles">
-      <OrderedList>
+      <OrderedList maxW="xl">
         {mediumArticles.map((article, index) => (
           <ListItem key={`${article.url}-${index}`}>
             <Link href={article.url} isExternal _hover={{ color: 'frost.100' }}>

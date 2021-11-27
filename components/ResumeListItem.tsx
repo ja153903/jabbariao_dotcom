@@ -4,7 +4,7 @@ import { ResumeListItemProps } from '../@types'
 
 function ResumeListItem({ title, items, isLast = false }: ResumeListItemProps) {
   return (
-    <Box mb={isLast ? '0px' : '20px'}>
+    <Box mb={isLast ? '0px' : '20px'} maxW="xl">
       <Heading fontSize="xl">{title}</Heading>
       <UnorderedList>
         {items.map((item) => (

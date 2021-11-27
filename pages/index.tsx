@@ -15,23 +15,23 @@ function CurrentWork() {
 function AboutMe() {
   return (
     <Section title="About Me">
-      <Text mb="10px" maxW="600px">
+      <Text mb="10px" maxW="xl">
         I am Jaime Abbariao. Currently working as a software engineer at{' '}
         <Link href="https://getbento.com" color="frost.100" isExternal>
           BentoBox
         </Link>
         .
       </Text>
-      <Text mb="10px" maxW="600px">
+      <Text mb="10px" maxW="xl">
         I spent undergrad and grad school figuring out how machine learning
         works, but in the end, I decided I wanted to build scalable applications
         instead.
       </Text>
-      <Text mb="10px" maxW="600px">
+      <Text mb="10px" maxW="xl">
         These days, you can find me working on side-projects in TypeScript or
         tinkering with my Neovim configuration
       </Text>
-      <Text maxW="600px">
+      <Text maxW="xl">
         I also take photos. You can find my work on{' '}
         <Link
           href="https://www.instagram.com/jaimeabbariao/"
@@ -48,7 +48,7 @@ function AboutMe() {
 function Contact() {
   return (
     <Section title="Contact">
-      <Text maxW="600px">
+      <Text maxW="xl">
         Feel free to contact me at{' '}
         <Link href="mailto:jaimeabbariao@gmail.com" color="frost.100">
           jaimeabbariao@gmail.com

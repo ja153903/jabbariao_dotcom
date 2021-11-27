@@ -5,7 +5,7 @@ import type { BlogPostPreviewProps } from '../@types'
 
 function BlogPostPreview({ posts }: BlogPostPreviewProps) {
   return (
-    <OrderedList>
+    <OrderedList maxW="xl">
       {posts.map((post) => (
         <ListItem key={post.slug}>
           <Link href={`/blog/${post.slug}`} passHref>

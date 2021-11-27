@@ -9,7 +9,7 @@ function ResumeItem({
   isLastItem = false,
 }: ResumeItemProps) {
   return (
-    <Box mb={isLastItem ? '0' : '20px'}>
+    <Box mb={isLastItem ? '0' : '20px'} maxW="xl">
       <Heading fontSize="xl">{title}</Heading>
       <Text fontStyle="italic" color="snowstorm.100">
         {subTitle}
