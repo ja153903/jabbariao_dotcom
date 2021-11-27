@@ -1,3 +1,4 @@
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { IRepository } from '.'
 import { IBlogPost, IFrontMatter } from './interfaces'
 
@@ -44,7 +45,7 @@ export interface TitleLineProps {
 
 export interface BlogPageProps {
   frontMatter: IFrontMatter
-  mdxSource: any
+  mdxSource: MDXRemoteSerializeResult
 }
 
 export interface SyntaxHighlighterProps {
