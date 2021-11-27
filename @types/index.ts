@@ -1,2 +1,2 @@
-export * from './componentProps'
+export * from './props'
 export * from './interfaces'
