@@ -5,11 +5,6 @@ import ExternalLink from './ExternalLink'
 
 import Language from './Language'
 
-// This component should render the items within
-// the GitHubRepoContainer
-// should have name of repo with url
-// description of repo
-// languages we use for it
 function GitHubRepo({ repository }: GitHubRepoProps) {
   const { name, url, description, language } = repository
 

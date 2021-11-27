@@ -7,6 +7,7 @@ const sitePaths = [
   { href: '/', label: 'About' },
   { href: '/resume', label: 'Resume' },
   { href: '/writing', label: 'Writing' },
+  { href: '/projects', label: 'Projects' },
 ]
 
 const mapBlogToWriting = (pathname: string): string =>

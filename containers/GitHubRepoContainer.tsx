@@ -29,7 +29,7 @@ const GITHUB_REPOSITORIES: IRepository[] = [
 
 function GitHubRepoContainer() {
   return (
-    <Section title="Active Projects">
+    <Section title="Active Projects on GitHub">
       <Flex wrap="wrap" direction="column" mb="-20px">
         {GITHUB_REPOSITORIES.map((repository: IRepository) => (
           <GitHubRepo repository={repository} key={repository.name} />

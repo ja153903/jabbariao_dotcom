@@ -34,12 +34,12 @@ const mediumArticles: Array<IMediumArticle> = [
 
 function MediumArticles() {
   return (
-    <Section title="Medium Articles">
+    <Section title="Published on Medium">
       <OrderedList maxW="xl">
         {mediumArticles.map((article, index) => (
           <ListItem key={`${article.url}-${index}`}>
             <Link href={article.url} isExternal _hover={{ color: 'frost.100' }}>
-              {article.name} (published on {article.publishedDate})
+              {article.name} ({article.publishedDate})
             </Link>
           </ListItem>
         ))}
@@ -50,7 +50,7 @@ function MediumArticles() {
 
 function BlogPreviewSection({ posts }: BlogPostPreviewProps) {
   return (
-    <Section title="Other Pieces">
+    <Section title="Miscellaneous Blog Posts">
       <BlogPostPreview posts={posts ?? []} />
     </Section>
   )
