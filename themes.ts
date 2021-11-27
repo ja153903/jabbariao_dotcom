@@ -32,7 +32,7 @@ const theme = extendTheme({
   styles: {
     global: {
       'html, body': {
-        background: PolarNight.Nord3,
+        background: PolarNight.Nord1,
         color: SnowStorm.Nord6,
       },
     },
