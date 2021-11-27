@@ -15,3 +15,10 @@ export interface IBlogPost {
   slug: string
   frontMatter: IFrontMatter
 }
+
+export interface IRepository {
+  name: string
+  url: string
+  description: string
+  language: string
+}

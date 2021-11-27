@@ -2,6 +2,7 @@ import { Text, Link } from '@chakra-ui/react'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
+import GitHubRepoContainer from '../containers/GitHubRepoContainer'
 
 function CurrentWork() {
   return (
@@ -63,6 +64,7 @@ function About() {
     <PageContainer>
       <CurrentWork />
       <AboutMe />
+      <GitHubRepoContainer />
       <Contact />
     </PageContainer>
   )

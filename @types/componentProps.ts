@@ -1,3 +1,4 @@
+import { IRepository } from '.'
 import { IBlogPost, IFrontMatter } from './interfaces'
 
 export interface WritingProps {
@@ -63,4 +64,13 @@ export interface MDXComponentProps {
 export interface BlogContentProps {
   mdxSource: any
   tags?: string[]
+}
+
+export interface GitHubRepoProps {
+  repository: IRepository
+}
+
+export interface ExternalLinkProps {
+  name: string
+  url: string
 }
