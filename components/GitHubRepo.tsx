@@ -20,8 +20,12 @@ function GitHubRepo({ repository }: GitHubRepoProps) {
       justify="flex-start"
       mb="20px"
       border="1px"
-      padding="10px"
+      borderStyle="none"
+      padding="15px"
       maxW="xl"
+      borderRadius="10px"
+      boxShadow="dark-lg"
+      bg="polarnight.100"
     >
       <ExternalLink name={name} url={url} />
       <Text color="snowstorm.100" as="i" mb="15px">
