@@ -24,7 +24,7 @@ function BackToList() {
 
 function BlogContent({ mdxSource, tags }: BlogContentProps) {
   return (
-    <Flex direction="column" justifyContent="center" mb="50px">
+    <Flex direction="column" justifyContent="center" mb="50px" maxW="4xl">
       <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
       <Tags tags={tags ?? []} />
     </Flex>
