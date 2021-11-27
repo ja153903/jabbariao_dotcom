@@ -18,17 +18,17 @@ const mediumArticles: Array<IMediumArticle> = [
   {
     url: 'https://javascript.plainenglish.io/resolving-lsps-for-deno-projects-in-neovim-1728583edde9',
     name: 'Resolving LSPs for Deno Projects in Neovim',
-    publishedDate: 'Nov 10, 2021',
+    publishedDate: '11-10-2021',
   },
   {
     url: 'https://javascript.plainenglish.io/communicating-between-stores-in-mobx-state-tree-with-react-and-typescript-24d103001b32',
     name: 'Communicating Between Stores in MobX State Tree with React and TypeScript',
-    publishedDate: 'Dec 11, 2019',
+    publishedDate: '12-11-2019',
   },
   {
     url: 'https://javascript.plainenglish.io/structuring-react-components-for-easy-imports-bc6e876cf541',
     name: 'Structuring React Components for Easy Imports',
-    publishedDate: 'Dec 2, 2019',
+    publishedDate: '12-02-2019',
   },
 ]
 
