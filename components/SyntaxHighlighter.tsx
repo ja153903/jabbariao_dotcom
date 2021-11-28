@@ -5,11 +5,11 @@ import { Box } from '@chakra-ui/react'
 
 import type { SyntaxHighlighterProps } from '../@types'
 
-function SyntaxHighlighter({ language, children }: SyntaxHighlighterProps) {
+function SyntaxHighlighter({ children }: SyntaxHighlighterProps) {
   return (
     <Box mb="30px" boxShadow="dark-lg" borderRadius="10px">
       <ReactSyntaxHighlighter
-        language={language}
+        language="javascript"
         style={nord}
         showLineNumbers
         customStyle={{
