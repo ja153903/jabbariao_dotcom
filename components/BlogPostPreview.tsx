@@ -8,7 +8,7 @@ function BlogPostPreview({ posts }: BlogPostPreviewProps) {
   return (
     <List maxW="xl">
       {posts.map((post) => (
-        <ListItem key={post.slug} mb="20px">
+        <ListItem key={post.slug} mb="10px">
           <StyledLayout layoutType="flex" sx={{ flexDirection: 'column' }}>
             <Link href={`/blog/${post.slug}`} passHref>
               <ChakraLink color="frost.100" fontSize="xl">

@@ -39,7 +39,7 @@ function MediumArticles() {
     <Section title="Published on Medium">
       <List maxW="xl">
         {mediumArticles.map((article, index) => (
-          <ListItem key={`${article.url}-${index}`} mb="20px">
+          <ListItem key={`${article.url}-${index}`} mb="10px">
             <StyledLayout layoutType="flex" sx={{ flexDirection: 'column' }}>
               <ExternalLink name={article.name} url={article.url} />
               <Text as="i" color="snowstorm.100">

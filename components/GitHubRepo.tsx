@@ -16,7 +16,7 @@ function GitHubRepo({ repository }: GitHubRepoProps) {
         flexDirection: 'column',
         flexWrap: 'wrap',
         justifyContent: 'flex-start',
-        marginBottom: '20px',
+        marginBottom: '10px',
       }}
     >
       <ExternalLink name={name} url={url} />
