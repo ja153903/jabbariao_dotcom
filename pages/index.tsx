@@ -7,7 +7,10 @@ function AboutMe() {
   return (
     <Section title="About Me">
       <Text mb="10px" maxW="xl">
-        I am Jaime Abbariao. Currently working as a software engineer at{' '}
+        I am Jaime Abbariao.
+      </Text>
+      <Text mb="10px" maxW="xl">
+        Currently working as a software engineer at{' '}
         <Link href="https://getbento.com" color="frost.100" isExternal>
           BentoBox
         </Link>
