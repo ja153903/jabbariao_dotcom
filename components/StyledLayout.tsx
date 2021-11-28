@@ -21,7 +21,7 @@ function StyledLayout({ layoutType, children, sx }: StyledLayoutProps) {
       border="1px"
       borderRadius="10px"
       borderStyle="none"
-      boxShadow="dark-lg"
+      boxShadow="inner"
       padding="15px"
       maxW="xl"
       bg="polarnight.100"

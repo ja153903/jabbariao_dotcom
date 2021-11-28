@@ -7,7 +7,7 @@ import type { SyntaxHighlighterProps } from '../@types'
 
 function SyntaxHighlighter({ children }: SyntaxHighlighterProps) {
   return (
-    <Box mb="30px" boxShadow="dark-lg" borderRadius="10px">
+    <Box mb="30px" boxShadow="inner" borderRadius="10px">
       <ReactSyntaxHighlighter
         language="javascript"
         style={nord}
