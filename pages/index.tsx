@@ -18,12 +18,12 @@ function AboutMe() {
       </Text>
       <Text mb="10px" maxW="xl">
         I spent undergrad and grad school figuring out how machine learning
-        works, but in the end, I decided I wanted to build scalable applications instead
-        of doing research.
+        works, but in the end, I decided I wanted to build scalable applications
+        instead of doing research.
       </Text>
       <Text mb="10px" maxW="xl">
-        These days, you can find me hacking on projects in React, Node, and Deno or hot-swapping
-        themes and plugins for my Neovim editor.
+        These days, you can find me hacking on projects in React, Node, and Deno
+        or hot-swapping themes and plugins for my Neovim editor.
       </Text>
       <Text maxW="xl">
         I also take photos. You can find my work on{' '}
