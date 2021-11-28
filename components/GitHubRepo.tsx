@@ -1,33 +1,30 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 
 import type { GitHubRepoProps } from '../@types'
 import ExternalLink from './ExternalLink'
 
 import Language from './Language'
+import StyledLayout from './StyledLayout'
 
 function GitHubRepo({ repository }: GitHubRepoProps) {
   const { name, url, description, language } = repository
 
   return (
-    <Flex
-      direction="column"
-      wrap="wrap"
-      justify="flex-start"
-      mb="20px"
-      border="1px"
-      borderStyle="none"
-      padding="15px"
-      maxW="xl"
-      borderRadius="10px"
-      boxShadow="dark-lg"
-      bg="polarnight.100"
+    <StyledLayout
+      layoutType="flex"
+      sx={{
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+        marginBottom: '20px',
+      }}
     >
       <ExternalLink name={name} url={url} />
       <Text color="snowstorm.100" as="i" mb="15px">
         {description}
       </Text>
       <Language language={language} />
-    </Flex>
+    </StyledLayout>
   )
 }
 

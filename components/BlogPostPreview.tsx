@@ -1,21 +1,27 @@
 import Link from 'next/link'
-import { Link as ChakraLink, OrderedList, ListItem } from '@chakra-ui/react'
+import { Link as ChakraLink, List, ListItem, Text } from '@chakra-ui/react'
 
 import type { BlogPostPreviewProps } from '../@types'
+import StyledLayout from './StyledLayout'
 
 function BlogPostPreview({ posts }: BlogPostPreviewProps) {
   return (
-    <OrderedList maxW="xl">
+    <List maxW="xl">
       {posts.map((post) => (
-        <ListItem key={post.slug}>
-          <Link href={`/blog/${post.slug}`} passHref>
-            <ChakraLink _hover={{ color: 'frost.100' }}>
-              {post.frontMatter.title} ({post.frontMatter.date})
-            </ChakraLink>
-          </Link>
+        <ListItem key={post.slug} mb="20px">
+          <StyledLayout layoutType="flex" sx={{ flexDirection: 'column' }}>
+            <Link href={`/blog/${post.slug}`} passHref>
+              <ChakraLink color="frost.100" fontSize="xl">
+                {post.frontMatter.title}
+              </ChakraLink>
+            </Link>
+            <Text as="i" color="snowstorm.100">
+              Published on {post.frontMatter.date}
+            </Text>
+          </StyledLayout>
         </ListItem>
       ))}
-    </OrderedList>
+    </List>
   )
 }
 

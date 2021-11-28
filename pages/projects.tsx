@@ -1,11 +1,12 @@
 import PageContainer from '../components/PageContainer'
 import GitHubRepoContainer from '../containers/GitHubRepoContainer'
+import GitHubContributionChart from '../components/GitHubContributionGraph'
 
-// TODO: Contribution chart should go here when I finish creating it
 function Projects() {
   return (
     <PageContainer>
       <GitHubRepoContainer />
+      <GitHubContributionChart />
     </PageContainer>
   )
 }

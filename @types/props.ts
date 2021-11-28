@@ -75,3 +75,9 @@ export interface ExternalLinkProps {
   name: string
   url: string
 }
+
+export interface StyledLayoutProps {
+  layoutType: string
+  children?: React.ReactNode
+  sx?: object
+}

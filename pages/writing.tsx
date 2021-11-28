@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-import { ListItem, OrderedList, Link } from '@chakra-ui/react'
+import { ListItem, List, Text } from '@chakra-ui/react'
 
 import type {
   BlogPostPreviewProps,
@@ -13,6 +13,8 @@ import type {
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
 import BlogPostPreview from '../components/BlogPostPreview'
+import ExternalLink from '../components/ExternalLink'
+import StyledLayout from '../components/StyledLayout'
 
 const mediumArticles: Array<IMediumArticle> = [
   {
@@ -35,15 +37,18 @@ const mediumArticles: Array<IMediumArticle> = [
 function MediumArticles() {
   return (
     <Section title="Published on Medium">
-      <OrderedList maxW="xl">
+      <List maxW="xl">
         {mediumArticles.map((article, index) => (
-          <ListItem key={`${article.url}-${index}`}>
-            <Link href={article.url} isExternal _hover={{ color: 'frost.100' }}>
-              {article.name} ({article.publishedDate})
-            </Link>
+          <ListItem key={`${article.url}-${index}`} mb="20px">
+            <StyledLayout layoutType="flex" sx={{ flexDirection: 'column' }}>
+              <ExternalLink name={article.name} url={article.url} />
+              <Text as="i" color="snowstorm.100">
+                Published on {article.publishedDate}
+              </Text>
+            </StyledLayout>
           </ListItem>
         ))}
-      </OrderedList>
+      </List>
     </Section>
   )
 }

@@ -5,9 +5,9 @@ import NavigationLink from './NavigationLink'
 
 const sitePaths = [
   { href: '/', label: 'About' },
+  { href: '/projects', label: 'Projects' },
   { href: '/resume', label: 'Resume' },
   { href: '/writing', label: 'Writing' },
-  { href: '/projects', label: 'Projects' },
 ]
 
 const mapBlogToWriting = (pathname: string): string =>

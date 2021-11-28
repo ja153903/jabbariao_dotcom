@@ -1,14 +1,19 @@
-import { Box } from '@chakra-ui/react'
+import Section from './Section'
+import StyledLayout from './StyledLayout'
 
-import { GitHubContributionChartProps } from '../@types'
-
-function GitHubContributionChart({
-  contributions,
-}: GitHubContributionChartProps) {
+function GitHubContributionChartContainer() {
   return (
-    <Box>
-      <p>This is where we will render the contributions</p>
-    </Box>
+    <StyledLayout layoutType="flex">
+      We are going to render contributions here
+    </StyledLayout>
+  )
+}
+
+function GitHubContributionChart() {
+  return (
+    <Section title="Contributions this past year">
+      <GitHubContributionChartContainer />
+    </Section>
   )
 }
 
