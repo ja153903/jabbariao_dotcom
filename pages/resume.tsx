@@ -2,6 +2,7 @@ import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
 import ResumeItem from '../components/ResumeItem'
 import ResumeListItem from '../components/ResumeListItem'
+import Meta from '../components/Meta'
 
 function Experience() {
   return (
@@ -70,11 +71,14 @@ function Technologies() {
 
 function Resume() {
   return (
-    <PageContainer>
-      <Experience />
-      <Education />
-      <Technologies />
-    </PageContainer>
+    <>
+      <Meta title="Resume" description="Here is my resume" />
+      <PageContainer>
+        <Experience />
+        <Education />
+        <Technologies />
+      </PageContainer>
+    </>
   )
 }
 

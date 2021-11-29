@@ -2,6 +2,7 @@ import { Text, Link } from '@chakra-ui/react'
 
 import PageContainer from '../components/PageContainer'
 import Section from '../components/Section'
+import Meta from '../components/Meta'
 
 function AboutMe() {
   return (
@@ -55,10 +56,13 @@ function Contact() {
 
 function About() {
   return (
-    <PageContainer>
-      <AboutMe />
-      <Contact />
-    </PageContainer>
+    <>
+      <Meta title="About Me" description="What I've been doing lately" />
+      <PageContainer>
+        <AboutMe />
+        <Contact />
+      </PageContainer>
+    </>
   )
 }
 

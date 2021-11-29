@@ -13,6 +13,7 @@ import Section from '../../components/Section'
 import MDXComponents from '../../components/MDXComponents'
 import NavigationLink from '../../components/NavigationLink'
 import Tags from '../../components/Tags'
+import Meta from '../../components/Meta'
 
 function BackToList() {
   return (
@@ -31,14 +32,23 @@ function BlogContent({ mdxSource, tags }: BlogContentProps) {
   )
 }
 
-function BlogPage({ frontMatter: { title, tags }, mdxSource }: BlogPageProps) {
+function BlogPage({
+  frontMatter: { title, tags, description },
+  mdxSource,
+}: BlogPageProps) {
   return (
-    <PageContainer>
-      <Section title={title}>
-        <BlogContent mdxSource={mdxSource} tags={tags} />
-        <BackToList />
-      </Section>
-    </PageContainer>
+    <>
+      <Meta
+        title={title ?? 'Some Post'}
+        description={description ?? 'Some description'}
+      />
+      <PageContainer>
+        <Section title={title}>
+          <BlogContent mdxSource={mdxSource} tags={tags} />
+          <BackToList />
+        </Section>
+      </PageContainer>
+    </>
   )
 }
 

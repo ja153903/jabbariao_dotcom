@@ -81,3 +81,8 @@ export interface StyledLayoutProps {
   children?: React.ReactNode
   sx?: object
 }
+
+export interface MetaProps {
+  title: string
+  description: string
+}

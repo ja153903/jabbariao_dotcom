@@ -15,6 +15,7 @@ import Section from '../components/Section'
 import BlogPostPreview from '../components/BlogPostPreview'
 import ExternalLink from '../components/ExternalLink'
 import StyledLayout from '../components/StyledLayout'
+import Meta from '../components/Meta'
 
 const mediumArticles: Array<IMediumArticle> = [
   {
@@ -63,10 +64,13 @@ function BlogPreviewSection({ posts }: BlogPostPreviewProps) {
 
 function Writing({ posts }: WritingProps) {
   return (
-    <PageContainer>
-      <MediumArticles />
-      <BlogPreviewSection posts={posts ?? []} />
-    </PageContainer>
+    <>
+      <Meta title="Writing" description="My musings about programming" />
+      <PageContainer>
+        <MediumArticles />
+        <BlogPreviewSection posts={posts ?? []} />
+      </PageContainer>
+    </>
   )
 }
 
