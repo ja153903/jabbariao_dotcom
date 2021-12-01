@@ -1,0 +1,102 @@
+---
+title: Advent of Code 2021 Day 1 (Deno/TypeScript)
+date: '12-01-2021'
+sort-date: '2021-12-01'
+tags: ['typescript', 'deno', 'adventofcode']
+---
+
+Another year, another Advent of Code.
+
+This year I wanted to solve the problems using TypeScript and Deno.
+
+So I'll be posting my solutions here.
+
+## Reading the Data
+
+I have yet to play with Deno's file system API. So this was a nice way of starting things.
+
+Problem 1 wants us to read a file containing numbers. So first thing's first: copy and paste the data into a text file.
+
+Once we have that, we should create some utility function to read the data into an array.
+
+After a little googling, here we are:
+
+```typescript
+import { readLines } from 'https://deno.land/std/io/buffer.ts'
+
+async function parseFileToArray(): Promise<number[]> {
+  const result: number[] = []
+
+  const file = await Deno.open('aoc2021/day1-data.txt')
+
+  for await (const line of readLines(file)) {
+    const num = parseInt(line)
+    result.push(num)
+  }
+
+  return result
+}
+```
+
+## Part 1
+
+The first task is to count the number of times a depth measurement increases from the previous measurement.
+
+This is quite a simple problem. We just have to check the previous number to see if it's less than the current
+number.
+
+```typescript
+function getNumIncreased(numbers: number[]): number {
+  let numIncreased = 0
+
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > numbers[i - 1]) {
+      numIncreased++
+    }
+  }
+
+  return numIncreased
+}
+
+const numbers = await parseFileToArray()
+
+let numIncreased = getNumIncreased(numbers)
+
+console.log(numIncreased)
+```
+
+Starting off strong. Let's go on the next part
+
+## Part 2
+
+The second tasks is to count the number of times the sum of measurements in this sliding window increases from the previous sum.
+This sliding window has a size of 3.
+
+So we should first create another array with the numbers condensed into its sliding window sums.
+
+`Ex: [10, 20, 30, 40] => [60, 90]`
+
+Then once we have that new array, we can reuse the `getNumIncreased` function we created in part 1.
+
+```typescript
+const slidingWindowSums: number[] = []
+let runningSum = 0
+
+for (let i = 0; i <= numbers.length; i++) {
+  if (i === numbers.length) {
+    slidingWindowSums.push(runningSum)
+    break
+  } else if (i > 2) {
+    slidingWindowSums.push(runningSum)
+    runningSum -= numbers[i - 3]
+  }
+
+  runningSum += numbers[i]
+}
+
+numIncreased = getNumIncreased(slidingWindowSums)
+
+console.log(numIncreased)
+```
+
+Nice that's a wrap for day 1.
