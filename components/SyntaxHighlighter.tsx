@@ -9,7 +9,7 @@ function SyntaxHighlighter({ children }: SyntaxHighlighterProps) {
   return (
     <Box mb="30px" boxShadow="inner" borderRadius="10px">
       <ReactSyntaxHighlighter
-        language="javascript"
+        language="typescript"
         style={nord}
         showLineNumbers
         customStyle={{
