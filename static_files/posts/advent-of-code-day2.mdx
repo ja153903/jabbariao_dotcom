@@ -1,0 +1,115 @@
+---
+title: Advent of Code 2021 Day 2 (Deno/TypeScript)
+date: '12-02-2021'
+sort-date: '2021-12-02'
+tags: ['typescript', 'deno', 'adventofcode']
+---
+
+Day 2. Let's see what they have for us.
+
+## Reading the Data
+
+Each line gives us a space delimited string. The first part is the `direction` and the second part is how many `units` we move in that direction.
+
+Let's create a utility function to parse today's dataset.
+
+```typescript
+import { readLines } from 'https://deno.land/std/io/buffer.ts'
+
+interface Moves {
+  direction: string
+  unit: number
+}
+
+async function parseFile(): Promise<Moves[]> {
+  const result: Moves[] = []
+
+  const file = await Deno.open('aoc2021/day2-data.txt')
+
+  for await (const line of readLines(file)) {
+    const [direction, unit] = line.split(' ')
+
+    result.push({
+      direction,
+      unit: parseInt(unit),
+    })
+  }
+
+  return result
+}
+```
+
+## Part 1
+
+Here are some details they've given us:
+
+`forward X` increases the horizontal position by `X` units.
+
+`down X` increases the depth by `X` units.
+
+`up X` decreases the depth by `X` units.
+
+They want us to find the product of the `forward` position and the `depth`.
+
+```typescript
+const moves = await parseFile()
+
+let forward = 0,
+  depth = 0
+
+for (const { direction, unit } of moves) {
+  switch (direction) {
+    case 'forward':
+      forward += unit
+      break
+    case 'up':
+      depth -= unit
+      break
+    case 'down':
+      depth += unit
+      break
+  }
+}
+
+console.log(forward * depth)
+```
+
+## Part 2
+
+Part 2 makes the following changes:
+
+In addition to horizontal position and depth, you'll also need to track a third value, aim, which also starts at 0. The commands also mean something entirely different than you first thought:
+
+`down X` increases the aim by `X` units.
+
+`up X` decreases the aim by `X` units.
+
+`forward X` increases the horizontal position by `X` units.
+
+`forward X` does two things: increases your horizontal position by X units and increases your depth by your aim multiplied by X.
+
+They want us to again find the product of the `forward` position and the `depth`
+
+```typescript
+let aim = 0
+;(forward = 0), (depth = 0)
+
+for (const { direction, unit } of moves) {
+  switch (direction) {
+    case 'forward':
+      forward += unit
+      depth += aim * unit
+      break
+    case 'up':
+      aim -= unit
+      break
+    case 'down':
+      aim += unit
+      break
+  }
+}
+
+console.log(forward * depth)
+```
+
+This was a surprisingly easier problem for day 2.
