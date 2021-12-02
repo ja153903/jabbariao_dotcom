@@ -86,3 +86,8 @@ export interface MetaProps {
   title: string
   description: string
 }
+
+export interface PaginationProps {
+  pageSize: number
+  pageItems: any[]
+}

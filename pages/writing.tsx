@@ -16,6 +16,7 @@ import BlogPostPreview from '../components/BlogPostPreview'
 import ExternalLink from '../components/ExternalLink'
 import StyledLayout from '../components/StyledLayout'
 import Meta from '../components/Meta'
+import Pagination from '../components/Pagination'
 
 const mediumArticles: Array<IMediumArticle> = [
   {
@@ -57,7 +58,7 @@ function MediumArticles() {
 function BlogPreviewSection({ posts }: BlogPostPreviewProps) {
   return (
     <Section title="Miscellaneous Blog Posts">
-      <BlogPostPreview posts={posts ?? []} />
+      <Pagination pageSize={3} pageItems={posts ?? []} />
     </Section>
   )
 }
