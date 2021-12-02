@@ -32,7 +32,7 @@ function getItemsPerPage(
   return itemsByPage
 }
 
-function Pagination({ pageSize, pageItems }: PaginationProps) {
+function Pagination({ pageSize, pageItems, ListComponent }: PaginationProps) {
   const [currentPage, setCurrentPage] = useState<number>(1)
 
   const itemsPerPage = getItemsPerPage(pageSize, pageItems)
@@ -41,7 +41,7 @@ function Pagination({ pageSize, pageItems }: PaginationProps) {
 
   return (
     <>
-      <BlogPostPreview posts={itemsPerPage.get(currentPage) ?? []} />
+      <ListComponent posts={itemsPerPage.get(currentPage) ?? []} />
       <Flex justify="flex-start" align="center" direction="row">
         <Button
           onClick={() => setCurrentPage(currentPage - 1)}

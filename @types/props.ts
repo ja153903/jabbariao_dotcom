@@ -90,4 +90,5 @@ export interface MetaProps {
 export interface PaginationProps {
   pageSize: number
   pageItems: any[]
+  ListComponent: any
 }

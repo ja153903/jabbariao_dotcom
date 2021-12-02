@@ -58,7 +58,11 @@ function MediumArticles() {
 function BlogPreviewSection({ posts }: BlogPostPreviewProps) {
   return (
     <Section title="Miscellaneous Blog Posts">
-      <Pagination pageSize={3} pageItems={posts ?? []} />
+      <Pagination
+        pageSize={3}
+        pageItems={posts ?? []}
+        ListComponent={BlogPostPreview}
+      />
     </Section>
   )
 }
