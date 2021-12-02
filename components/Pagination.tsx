@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Flex, Button } from '@chakra-ui/react'
 
 import { PaginationProps } from '../@types'
-import BlogPostPreview from './BlogPostPreview'
 
 function getItemsPerPage(
   pageSize: number,
