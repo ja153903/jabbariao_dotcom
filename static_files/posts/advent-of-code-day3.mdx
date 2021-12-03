@@ -1,0 +1,156 @@
+---
+title: Advent of Code 2021 Day 3 (Deno/TypeScript)
+date: '12-03-2021'
+sort-date: '2021-12-03'
+tags: ['typescript', 'deno', 'adventofcode']
+---
+
+Day 3. I spoke too soon when I made a comment about the difficulty of the problem.
+
+Today's problem was definitely more difficult compared to the previous day.
+
+## Reading the data
+
+We are given binary data with which we need to parse bits by position. So we should keep those are strings until
+we need to convert them.
+
+```typescript
+import { readLines } from 'https://deno.land/std/io/buffer.ts'
+
+async function parseFile(): Promise<string[]> {
+  const result: string[] = []
+
+  const file = await Deno.open('aoc2021/day3-data.txt')
+
+  for await (const line of readLines(file)) {
+    result.push(line)
+  }
+
+  return result
+}
+```
+
+## Part 1
+
+The first part requires us to compute these two statistics called `gamma rate` and `epsilon rate`.
+
+These two statistics were computed based on the most frequent and least frequent bit at that position.
+
+`gamma rate` is computed based on the most frequent bit at that position while `epsilon rate` is based on the least frequent bit.
+This means that for index 0, we would have to go through each input and count the frequency for each `1` or `0` that we come across.
+
+We would then take the bits we construct from their instruction and multiply them to produce some number (not in binary).
+
+```typescript
+function convertBinaryToNumber(binary: string[]): number {
+  let result = 0
+  let power = 0
+  while (binary.length > 0) {
+    result += parseInt(binary.pop() ?? '0') * Math.pow(2, power)
+    power += 1
+  }
+
+  return result
+}
+
+interface CommonBits {
+  mostCommonBits: string[]
+  leastCommonBits: string[]
+}
+
+function getMostAndLeastCommonBits(binaryNums: string[]): CommonBits {
+  const mostCommonBits = []
+  const leastCommonBits = []
+
+  for (let i = 0; i < binaryNums[0].length; i++) {
+    let zeros = 0
+    let ones = 0
+
+    for (const binaryNum of binaryNums) {
+      if (binaryNum[i] === '1') {
+        ones += 1
+      } else {
+        zeros += 1
+      }
+    }
+
+    if (ones >= zeros) {
+      mostCommonBits.push('1')
+      leastCommonBits.push('0')
+    } else {
+      mostCommonBits.push('0')
+      leastCommonBits.push('1')
+    }
+  }
+
+  return {
+    mostCommonBits,
+    leastCommonBits,
+  }
+}
+
+const binaryNums = await parseFile()
+
+const { mostCommonBits, leastCommonBits } =
+  getMostAndLeastCommonBits(binaryNums)
+
+const gamma = convertBinaryToNumber(mostCommonBits)
+const epsilon = convertBinaryToNumber(leastCommonBits)
+
+console.log(gamma * epsilon)
+```
+
+## Part 2
+
+This part was a bit of headache to read through, but once you get through it, it's similar to the previous problem.
+
+Part 2 asks us to compute two new statistics `oxygen generator rating` and `CO2 generator rating`.
+
+To find these statistics, we need to filter the binary numbers we have based on two `bit criteria` they provide.
+
+The bit criteria for `oxygen generator rating` is: determine the most common value (0 or 1) in the current bit position, and keep only numbers with that bit in that position. If 0 and 1 are equally common, keep values with a 1 in the position being considered.
+
+The bit criteria for `CO2 generator rating` is: determine the least common value (0 or 1) in the current bit position, and keep only numbers with that bit in that position. If 0 and 1 are equally common, keep values with a 0 in the position being considered.
+
+We would need to filter two copies of the input data we were given based on these bit criteria until there is only 1 item left in the array.
+The remaining binary data would then be multiplied together to find our answer.
+
+```typescript
+let oxygenGeneratorRating = [...binaryNums]
+let co2GeneratorRating = [...binaryNums]
+let currentIndex = 0
+
+while (oxygenGeneratorRating.length > 1) {
+  const { mostCommonBits } = getMostAndLeastCommonBits(oxygenGeneratorRating)
+  const mostCommonBit = mostCommonBits[currentIndex]
+
+  oxygenGeneratorRating = oxygenGeneratorRating.filter(
+    (binaryNum) => binaryNum[currentIndex] === mostCommonBit
+  )
+  currentIndex += 1
+}
+
+currentIndex = 0
+
+while (co2GeneratorRating.length > 1) {
+  const { leastCommonBits } = getMostAndLeastCommonBits(co2GeneratorRating)
+
+  const leastCommonBit = leastCommonBits[currentIndex]
+
+  co2GeneratorRating = co2GeneratorRating.filter(
+    (binaryNum) => binaryNum[currentIndex] === leastCommonBit
+  )
+
+  currentIndex += 1
+}
+
+const oxygenGeneratorRatingCandidate = oxygenGeneratorRating?.[0] ?? ''
+const co2GeneratorRatingCandidate = co2GeneratorRating?.[0] ?? ''
+
+const oxygen = convertBinaryToNumber([...oxygenGeneratorRatingCandidate])
+const co2 = convertBinaryToNumber([...co2GeneratorRatingCandidate])
+
+console.log(oxygen * co2)
+```
+
+It definitely took some time to digest the information they gave. But that's a wrap for day 3.
