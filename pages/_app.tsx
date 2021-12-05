@@ -20,7 +20,7 @@ function App({ Component, pageProps }: AppProps) {
         crossOrigin="anonymous"
       />
       <ChakraProvider theme={theme}>
-        <Container paddingTop="20px" maxW="container.xl">
+        <Container paddingTop="20px" maxW="container.xl" h="100%">
           <Flex align="flex-start" justify="flex-start">
             <Introduction />
             <Component {...pageProps} />
