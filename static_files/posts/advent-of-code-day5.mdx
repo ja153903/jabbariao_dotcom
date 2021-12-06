@@ -1,0 +1,225 @@
+---
+title: Advent of Code 2021 Day 5 (Deno/TypeScript)
+date: '12-05-2021'
+sort-date: '2021-12-05'
+tags: ['typescript', 'deno', 'adventofcode']
+---
+
+Day 5.
+
+## Reading the data
+
+We were given line segments as today's input in the following format: `a,b -> c,d`
+
+From this data, we can infer the start and end point and the direction. We have a couple
+directions to work with here: `horizontal`, `vertical`, and `diagonal`.
+
+```typescript
+import { readLines } from 'https://deno.land/std/io/buffer.ts'
+
+interface Point {
+  x: number
+  y: number
+}
+
+interface LineSegment {
+  start: Point
+  end: Point
+  direction: string
+}
+
+async function parseFile(): Promise<{
+  lineSegments: LineSegment[]
+  maxX: number
+  maxY: number
+}> {
+  const result: LineSegment[] = []
+
+  const file = await Deno.open('aoc2021/day5-data.txt')
+
+  let maxX = 0
+  let maxY = 0
+
+  for await (const line of readLines(file)) {
+    const [start, end] = line.split(' -> ')
+
+    const [ax, ay] = start.split(',')
+    const [bx, by] = end.split(',')
+
+    const startPoint: Point = { x: parseInt(ax) ?? 0, y: parseInt(ay) ?? 0 }
+    const endPoint: Point = { x: parseInt(bx) ?? 0, y: parseInt(by) ?? 0 }
+
+    const direction =
+      startPoint.y === endPoint.y
+        ? 'horizontal'
+        : startPoint.x === endPoint.x
+        ? 'vertical'
+        : 'diagonal'
+
+    maxX = Math.max(maxX, startPoint.x, endPoint.x)
+    maxY = Math.max(maxY, startPoint.y, endPoint.y)
+
+    result.push({
+      direction,
+      end: endPoint,
+      start: startPoint,
+    })
+  }
+
+  return { lineSegments: result, maxX, maxY }
+}
+```
+
+## Part 1
+
+To sum up what part 1 is asking, we want to fill a matrix with the number of times the lines hit a certain point.
+
+We then want to count up the number of points that have been hit more than once.
+
+One restraint part 1 had was that we are only concerned with line segments that were going in the `horizontal` and `vertical` direction.
+
+To help with that process, I created some helper functions to create a matrix for our solution and another function
+that counts the number of points that have a hit count of at least 2.
+
+```typescript
+function createMatrix(
+  maxX: number,
+  maxY: number,
+  defaultValue = 0
+): number[][] {
+  const matrix: number[][] = new Array(maxY + 1)
+  for (let i = 0; i < maxY + 1; i++) {
+    matrix[i] = new Array(maxX + 1).fill(defaultValue)
+  }
+
+  return matrix
+}
+
+function countSignificantOverlaps(matrix: number[][]): number {
+  let count = 0
+
+  for (const row of matrix) {
+    for (const col of row) {
+      if (col >= 2) {
+        count += 1
+      }
+    }
+  }
+
+  return count
+}
+```
+
+We should then iterate over all the line segments and if we come across a line segment that has a `vertical` or `horizontal` direction,
+we would increment the count at the appropriate range of points.
+
+```typescript
+function evaluatePart1(
+  lineSegments: LineSegment[],
+  maxX: number,
+  maxY: number
+) {
+  const matrix = createMatrix(maxX, maxY)
+
+  for (const lineSegment of lineSegments) {
+    const { direction, start, end } = lineSegment
+
+    if (direction === 'horizontal') {
+      const horizontalStart = Math.min(start.x, end.x)
+      const horizontalEnd = Math.max(start.x, end.x)
+
+      for (let i = horizontalStart; i <= horizontalEnd; i++) {
+        matrix[start.y][i] += 1
+      }
+    } else if (direction === 'vertical') {
+      const verticalStart = Math.min(start.y, end.y)
+      const verticalEnd = Math.max(start.y, end.y)
+
+      for (let i = verticalStart; i <= verticalEnd; i++) {
+        matrix[i][start.x] += 1
+      }
+    }
+  }
+
+  const count = countSignificantOverlaps(matrix)
+
+  console.log(count)
+}
+
+const { lineSegments, maxX, maxY } = await parseFile()
+
+evaluatePart1(lineSegments, maxX, maxY)
+```
+
+## Part 2
+
+Part 2 just wanted us to account for the diagonal direction as well.
+
+One thing to take note of here is that we have to make sure that we take care of both diagonals.
+
+```typescript
+function evaluatePart2(
+  lineSegments: LineSegment[],
+  maxX: number,
+  maxY: number
+) {
+  const matrix = createMatrix(maxX, maxY)
+
+  for (const lineSegment of lineSegments) {
+    const { direction, start, end } = lineSegment
+
+    if (direction === 'horizontal') {
+      const horizontalStart = Math.min(start.x, end.x)
+      const horizontalEnd = Math.max(start.x, end.x)
+
+      for (let i = horizontalStart; i <= horizontalEnd; i++) {
+        matrix[start.y][i] += 1
+      }
+    } else if (direction === 'vertical') {
+      const verticalStart = Math.min(start.y, end.y)
+      const verticalEnd = Math.max(start.y, end.y)
+
+      for (let i = verticalStart; i <= verticalEnd; i++) {
+        matrix[i][start.x] += 1
+      }
+    } else {
+      if (
+        (start.x < end.x && start.y < end.y) ||
+        (start.x > end.x && start.y > end.y)
+      ) {
+        const diagonalStartX = Math.min(start.x, end.x)
+        const diagonalStartY = Math.min(start.y, end.y)
+
+        const diagonalEndX = Math.max(start.x, end.x)
+        const diagonalEndY = Math.max(start.y, end.y)
+
+        for (
+          let i = diagonalStartX, j = diagonalStartY;
+          i <= diagonalEndX && j <= diagonalEndY;
+          i++, j++
+        ) {
+          matrix[j][i] += 1
+        }
+      } else if (start.x > end.x && start.y < end.y) {
+        for (let i = start.x, j = start.y; i >= end.x; i--, j++) {
+          matrix[j][i] += 1
+        }
+      } else if (start.x < end.x && start.y > end.y) {
+        for (let i = start.x, j = start.y; i <= end.x; i++, j--) {
+          matrix[j][i] += 1
+        }
+      }
+    }
+  }
+
+  const count = countSignificantOverlaps(matrix)
+
+  console.log(count)
+}
+
+const { lineSegments, maxX, maxY } = await parseFile()
+
+evaluatePart2(lineSegments, maxX, maxY)
+```
+
+That's day 5 in the books.
