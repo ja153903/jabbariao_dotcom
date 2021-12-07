@@ -1,0 +1,80 @@
+---
+title: Advent of Code 2021 Day 6 (Deno/TypeScript)
+date: '12-06-2021'
+sort-date: '2021-12-06'
+tags: ['typescript', 'deno', 'adventofcode']
+---
+
+Day 6. A problem where optimization matters.
+
+## Reading the data
+
+Today's problem was a single string of comma delimited numbers.
+
+```typescript
+import { readLines } from './deps.ts'
+
+async function parseLine(): Promise<number[]> {
+  let result: number[] = []
+  const file = await Deno.open('aoc2021/day6-data.txt')
+
+  for await (const line of readLines(file)) {
+    result = line.split(',').map((ch) => parseInt(ch) ?? -1)
+    break
+  }
+
+  return result
+}
+```
+
+## Part 1
+
+The question asks us to count the final length of the array after 80 days given the following rules
+
+Each number is a timer that goes down to 0. When you try to decrement a 0 value, it instead becomes a 6
+and that an 8 is appended to the array of numbers you're iterating over.
+
+Given this, we are asked to find the length of the array after 80 days.
+
+This problem is quite tricky at first, but we should realize that all we're doing is counting up
+the number of items at each time state. There are 9 time states that range from 0 to 8.
+
+Given this array, we tabulate the frequency our original state.
+
+Then we decrement each state by shifting over the count at state `i` over to state `i-1`.
+
+However, we want to make sure that if state `0` contains a non-zero frequency, that we
+add that frequency to state `6` and that we update state `8` with the frequency count from state `0`.
+
+```typescript
+async function countFishes(days: number) {
+  const fishes = await parseLine()
+  const state: number[] = new Array(9).fill(0)
+
+  fishes.forEach((fish) => {
+    state[fish] += 1
+  })
+
+  for (let i = 1; i <= days; i++) {
+    const toShift = state[0]
+
+    for (let j = 1; j < 9; j++) {
+      state[j - 1] = state[j]
+    }
+
+    state[8] = toShift
+
+    if (toShift > 0) {
+      state[6] += toShift
+    }
+  }
+
+  console.log(state.reduce((acc, num) => acc + num))
+}
+
+countFishes(80)
+```
+
+## Part 2
+
+Luckily there isn't much to be done with this part other than changing the input value.
