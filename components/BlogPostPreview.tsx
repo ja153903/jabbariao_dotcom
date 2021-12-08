@@ -3,6 +3,7 @@ import { Link as ChakraLink, List, ListItem, Text } from '@chakra-ui/react'
 
 import type { BlogPostPreviewProps } from '../@types'
 import StyledLayout from './StyledLayout'
+import Tags from './Tags'
 
 function BlogPostPreview({ posts }: BlogPostPreviewProps) {
   return (
@@ -15,9 +16,10 @@ function BlogPostPreview({ posts }: BlogPostPreviewProps) {
                 {post.frontMatter.title}
               </ChakraLink>
             </Link>
-            <Text as="i" color="snowstorm.100">
+            <Text as="i" color="snowstorm.100" mb={5}>
               Published on {post.frontMatter.date}
             </Text>
+            <Tags tags={post.frontMatter.tags ?? []} />
           </StyledLayout>
         </ListItem>
       ))}

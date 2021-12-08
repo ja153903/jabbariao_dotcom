@@ -1,10 +1,10 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Box } from '@chakra-ui/react'
 
 function Tags({ tags }: { tags: string[] }) {
   return (
-    <Flex direction="row" justifyContent="center" align="center">
+    <Flex direction="row" wrap="wrap" sx={{ columnGap: '10px' }}>
       {tags.map((tag) => {
-        return <Text key={tag}>#{tag}</Text>
+        return <Box key={tag}>#{tag}</Box>
       })}
     </Flex>
   )

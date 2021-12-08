@@ -12,7 +12,6 @@ import PageContainer from '../../components/PageContainer'
 import Section from '../../components/Section'
 import MDXComponents from '../../components/MDXComponents'
 import NavigationLink from '../../components/NavigationLink'
-import Tags from '../../components/Tags'
 import Meta from '../../components/Meta'
 
 function BackToList() {
@@ -23,17 +22,16 @@ function BackToList() {
   )
 }
 
-function BlogContent({ mdxSource, tags }: BlogContentProps) {
+function BlogContent({ mdxSource }: BlogContentProps) {
   return (
     <Flex direction="column" justifyContent="center" mb="50px" maxW="4xl">
       <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
-      <Tags tags={tags ?? []} />
     </Flex>
   )
 }
 
 function BlogPage({
-  frontMatter: { title, tags, description },
+  frontMatter: { title, description },
   mdxSource,
 }: BlogPageProps) {
   return (
@@ -44,7 +42,7 @@ function BlogPage({
       />
       <PageContainer>
         <Section title={title}>
-          <BlogContent mdxSource={mdxSource} tags={tags} />
+          <BlogContent mdxSource={mdxSource} />
           <BackToList />
         </Section>
       </PageContainer>
