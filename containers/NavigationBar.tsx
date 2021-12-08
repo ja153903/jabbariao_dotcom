@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation'
 import Title from '../components/Title'
 import Footer from '../components/Footer'
 
-function Introduction() {
+function NavigationBar() {
   return (
     <Flex direction="column" maxW="xl">
       <Title />
@@ -16,4 +16,4 @@ function Introduction() {
   )
 }
 
-export default Introduction
+export default NavigationBar
