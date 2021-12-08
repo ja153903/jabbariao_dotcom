@@ -1,0 +1,91 @@
+---
+title: Advent of Code 2021 Day 7 (Deno/TypeScript)
+date: '12-07-2021'
+sort-date: '2021-12-07'
+tags: ['typescript', 'deno', 'adventofcode']
+---
+
+Day 7.
+
+## Reading in the data
+
+Today we're given a single line of integers that are comma-delimited.
+
+According to the prompt, these numbers represent the horizontal position of a crab.
+
+```typescript
+import { readLines } from './deps.ts'
+
+async function parseFile(): Promise<number[]> {
+  let result: number[] = []
+
+  const file = await Deno.open('aoc2021/day7-data.txt')
+
+  for await (const line of readLines(file)) {
+    result = line.split(',').map((ch) => parseInt(ch) ?? -1)
+  }
+
+  return result
+}
+```
+
+## Part 1
+
+Part 1 asks us to determine the horizontal position that the crabs can align to using the least fuel possible.
+
+Given that number, we are supposed to find out how much fuel must they spend to align to that position.
+
+```typescript
+const crabs: number[] = await parseFile()
+
+const maxPos = Math.max(...crabs)
+const minPos = Math.min(...crabs)
+
+let minFuel = Number.MAX_VALUE
+for (let i = minPos; i <= maxPos; i++) {
+  const curFuel = crabs
+    .map((crab) => Math.abs(i - crab))
+    .reduce((acc, num) => acc + num)
+
+  minFuel = Math.min(minFuel, curFuel)
+}
+
+console.log(minFuel)
+```
+
+Having `maxPos` and `minPos` is just a way of defining the proper range of integers we need to consider.
+
+## Part 2
+
+Part 2 asks us to compute the same except that we're augmenting the way steps are calculated.
+
+We are told the following: Instead, each change of 1 step in horizontal position costs 1 more unit of fuel
+than the last: the first step costs 1, the second step costs 2, the third step costs 3, and so on.
+
+To accommodate this new piece of code, we should create a function that computes the sum of natural numbers up to `n`.
+
+```typescript
+function getSumUpToN(n: number): number {
+  return (n * (n + 1)) / 2
+}
+```
+
+Then we can compute the minimum fuel needed:
+
+```typescript
+minFuel = Number.MAX_VALUE
+for (let i = minPos; i <= maxPos; i++) {
+  const curFuel = crabs
+    .map((crab) => {
+      const diff = Math.abs(i - crab)
+      return getSumUpToN(diff)
+    })
+    .reduce((acc, num) => acc + num)
+
+  minFuel = Math.min(minFuel, curFuel)
+}
+
+console.log(minFuel)
+```
+
+That's it for day 7.
