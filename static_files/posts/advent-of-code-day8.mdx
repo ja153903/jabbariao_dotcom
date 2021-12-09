@@ -1,0 +1,153 @@
+---
+title: Advent of Code 2021 Day 8 (Deno/TypeScript)
+date: '12-08-2021'
+sort-date: '2021-12-08'
+tags: ['typescript', 'deno', 'adventofcode']
+---
+
+Day 8.
+
+## Reading in the data
+
+We're given 10 unique signals and 4 output codes. These two sets of data are separated by a pipe character.
+
+Given this input, I decided to create the following interface:
+
+```typescript
+interface Signal {
+  patterns: string[]
+  codes: string[]
+}
+```
+
+Given this interface, we can then parse the file as follows:
+
+```typescript
+import { readLines } from './deps.ts'
+
+async function parseFile(): Promise<Signal[]> {
+  let results: Signal[] = []
+
+  const file = await Deno.open('aoc2021/day8-data.txt')
+
+  for await (const line of readLines(file)) {
+    let [patterns, codes] = line.split(' | ')
+    results.push({
+      patterns: patterns.trim().split(' '),
+      codes: codes.trim().split(' '),
+    })
+  }
+
+  return results
+}
+```
+
+## Part 1
+
+For part 1, we're asked to parse the number of time we can decode the numbers 1, 4, 7, or 8.
+
+The reason these numbers are significant is that these numbers have a unique number of characters that make up
+the segment representation as shown [here](https://adventofcode.com/2021/day/8).
+
+```typescript
+const signals = await parseFile()
+
+const answer = signals.reduce(
+  (acc, { codes }) =>
+    codes.reduce((acc, code): number => {
+      const value: number = definiteValuesMap.get(code.length) ?? -1
+      return value !== -1 ? 1 + acc : acc
+    }, 0) + acc,
+  0
+)
+
+console.log(answer)
+```
+
+## Part 2
+
+For part 2, we're asked to decode each number in the output codes by deducing each number in the signal given.
+
+This is honestly quite a difficult question to explain. My understanding of this question is that for any pattern
+that we're given, we're supposed to figure out which number from 0 to 9 it evaluates into.
+
+The way we can do that is by taking advantage of the signals that evaluate into 1, 4, 7, and 8.
+
+These 4 signals will give us the characters necessary to infer the rest of the numbers.
+
+From these 4 signals, we want to get the intersection of all 4 signals as well as the characters that only appear once across
+all 4 signals. These two sets of characters become vital in deducing which values form a certain shape.
+
+```typescript
+let result = 0
+
+function intersection(a: string, b: string): string {
+  const setA = new Set([...a])
+  const setB = new Set([...b])
+
+  return [...setA].filter((ch) => setB.has(ch)).join('')
+}
+
+function findIntersectionOfWords(words: string[]): string {
+  return words.reduce((acc, word) => intersection(acc, word))
+}
+
+function getUniqueCharacter(words: string[]): string[] {
+  const counter = new Map<string, number>()
+
+  for (const word of words) {
+    for (const ch of word) {
+      const currentCount = counter.get(ch) ?? 0
+      counter.set(ch, currentCount + 1)
+    }
+  }
+
+  return [...counter.entries()]
+    .filter(([_key, value]) => value === 1)
+    .map(([key, _value]) => key)
+}
+
+for (const { patterns, codes } of signals) {
+  const definiteValues = patterns.filter((pattern) =>
+    [2, 3, 4, 7].includes(pattern.length)
+  )
+  const [commonA, commonB] = findIntersectionOfWords(definiteValues)
+  const [uniqueA, uniqueB] = getUniqueCharacter(definiteValues)
+
+  let subresult = 0
+
+  for (const code of codes) {
+    const value: number = definiteValuesMap.get(code.length) ?? -1
+
+    subresult *= 10
+
+    if (value !== -1) {
+      subresult += value
+    } else {
+      if (code.length === 5) {
+        if (code.includes(commonA) && code.includes(commonB)) {
+          subresult += 3
+        } else {
+          if (code.includes(uniqueA) && code.includes(uniqueB)) {
+            subresult += 2
+          } else {
+            subresult += 5
+          }
+        }
+      } else if (code.length === 6) {
+        if (code.includes(commonA) && code.includes(commonB)) {
+          if (!code.includes(uniqueA) || !code.includes(uniqueB)) {
+            subresult += 9
+          }
+        } else {
+          subresult += 6
+        }
+      }
+    }
+  }
+
+  result += subresult
+}
+
+console.log(result)
+```
