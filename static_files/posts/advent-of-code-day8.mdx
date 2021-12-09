@@ -50,6 +50,12 @@ The reason these numbers are significant is that these numbers have a unique num
 the segment representation as shown [here](https://adventofcode.com/2021/day/8).
 
 ```typescript
+const definiteValuesMap = new Map<number, number>()
+definiteValuesMap.set(2, 1)
+definiteValuesMap.set(3, 7)
+definiteValuesMap.set(4, 4)
+definiteValuesMap.set(7, 8)
+
 const signals = await parseFile()
 
 const answer = signals.reduce(
