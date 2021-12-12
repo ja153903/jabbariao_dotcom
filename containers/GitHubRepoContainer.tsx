@@ -25,6 +25,12 @@ const GITHUB_REPOSITORIES: IRepository[] = [
       'Keeping myself sharp by solving LeetCode problems in TypeScript',
     language: 'typescript',
   },
+  {
+    name: 'advent-of-code',
+    url: 'https://github.com/ja153903/advent-of-code',
+    description: 'Advent of Code 2021 Solutions in TypeScript',
+    language: 'typescript',
+  },
 ]
 
 function GitHubRepoContainer() {
