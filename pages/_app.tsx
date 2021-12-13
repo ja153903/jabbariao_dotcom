@@ -5,8 +5,8 @@ import '@fontsource/roboto-mono'
 import type { AppProps } from 'next/app'
 import { ChakraProvider, Container, Flex } from '@chakra-ui/react'
 
-import NavigationBar from '../containers/NavigationBar'
-import ScrollToTopButton from '../components/ScrollToTopButton'
+import NavigationBar from '@containers/NavigationBar'
+import ScrollToTopButton from '@components/ScrollToTopButton'
 
 import theme from '../themes'
 

@@ -1,7 +1,7 @@
 import { Link as ChakraLink } from '@chakra-ui/react'
 import Link from 'next/link'
 
-import type { NavigationLinkProps } from '../@types'
+import type { NavigationLinkProps } from '@types'
 
 const getTextDecoration = (href: string, pathname: string): string =>
   pathname === href ? 'underline' : 'none'

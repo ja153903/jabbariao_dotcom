@@ -1,6 +1,6 @@
 import { Heading, Text } from '@chakra-ui/react'
 
-import { MDXComponentProps } from '../@types'
+import { MDXComponentProps } from '@types'
 import SyntaxHighlighter from './SyntaxHighlighter'
 
 const MDXComponents = {

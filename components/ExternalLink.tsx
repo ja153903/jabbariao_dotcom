@@ -1,6 +1,6 @@
 import { Link, Text } from '@chakra-ui/react'
 
-import type { ExternalLinkProps } from '../@types'
+import type { ExternalLinkProps } from '@types'
 
 function ExternalLink({ name, url }: ExternalLinkProps) {
   return (

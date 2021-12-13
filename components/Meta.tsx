@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { MetaProps } from '../@types'
+import { MetaProps } from '@types'
 
 function Meta({
   title = 'Jaime Abbariao',

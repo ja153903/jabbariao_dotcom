@@ -1,6 +1,6 @@
 import { Heading } from '@chakra-ui/react'
 
-import type { TitleLineProps } from '../@types'
+import type { TitleLineProps } from '@types'
 
 function TitleLine({ text }: TitleLineProps) {
   return (

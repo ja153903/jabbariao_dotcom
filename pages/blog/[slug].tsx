@@ -6,7 +6,7 @@ import { Flex } from '@chakra-ui/react'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 
-import type { BlogPageProps, BlogContentProps } from '../../@types'
+import type { BlogPageProps, BlogContentProps } from '../../types'
 
 import PageContainer from '../../components/PageContainer'
 import Section from '../../components/Section'

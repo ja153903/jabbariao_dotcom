@@ -1,6 +1,6 @@
 import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react'
 
-import { ResumeListItemProps } from '../@types'
+import { ResumeListItemProps } from '@types'
 
 function ResumeListItem({ title, items, isLast = false }: ResumeListItemProps) {
   return (

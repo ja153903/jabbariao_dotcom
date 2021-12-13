@@ -1,8 +1,8 @@
 import { Text, Link } from '@chakra-ui/react'
 
-import PageContainer from '../components/PageContainer'
-import Section from '../components/Section'
-import Meta from '../components/Meta'
+import PageContainer from '@components/PageContainer'
+import Section from '@components/Section'
+import Meta from '@components/Meta'
 
 function AboutMe() {
   return (

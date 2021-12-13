@@ -1,8 +1,9 @@
 import { Flex } from '@chakra-ui/react'
 
-import type { IRepository } from '../@types'
-import GitHubRepo from '../components/GitHubRepo'
-import Section from '../components/Section'
+import type { IRepository } from '@types'
+
+import GitHubRepo from '@components/GitHubRepo'
+import Section from '@components/Section'
 
 const GITHUB_REPOSITORIES: IRepository[] = [
   {

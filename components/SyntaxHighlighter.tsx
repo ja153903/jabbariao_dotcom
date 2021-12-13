@@ -3,7 +3,7 @@ import { nord } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 import { Box } from '@chakra-ui/react'
 
-import type { SyntaxHighlighterProps } from '../@types'
+import type { SyntaxHighlighterProps } from '@types'
 
 function SyntaxHighlighter({ children }: SyntaxHighlighterProps) {
   return (

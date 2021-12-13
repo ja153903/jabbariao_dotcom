@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react'
 
-import PageContainer from '../components/PageContainer'
-import Section from '../components/Section'
+import PageContainer from '@components/PageContainer'
+import Section from '@components/Section'
 
 function Custom404() {
   return (

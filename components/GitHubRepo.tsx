@@ -1,6 +1,6 @@
 import { Text } from '@chakra-ui/react'
 
-import type { GitHubRepoProps } from '../@types'
+import type { GitHubRepoProps } from '@types'
 import ExternalLink from './ExternalLink'
 
 import Language from './Language'

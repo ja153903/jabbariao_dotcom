@@ -1,8 +1,8 @@
-import PageContainer from '../components/PageContainer'
-import Section from '../components/Section'
-import ResumeItem from '../components/ResumeItem'
-import ResumeListItem from '../components/ResumeListItem'
-import Meta from '../components/Meta'
+import Meta from '@components/Meta'
+import PageContainer from '@components/PageContainer'
+import ResumeItem from '@components/ResumeItem'
+import ResumeListItem from '@components/ResumeListItem'
+import Section from '@components/Section'
 
 function Experience() {
   return (

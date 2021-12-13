@@ -4,19 +4,15 @@ import matter from 'gray-matter'
 
 import { ListItem, List, Text } from '@chakra-ui/react'
 
-import type {
-  BlogPostPreviewProps,
-  IMediumArticle,
-  WritingProps,
-} from '../@types'
+import type { BlogPostPreviewProps, IMediumArticle, WritingProps } from '@types'
 
-import PageContainer from '../components/PageContainer'
-import Section from '../components/Section'
-import BlogPostPreview from '../components/BlogPostPreview'
-import ExternalLink from '../components/ExternalLink'
-import StyledLayout from '../components/StyledLayout'
-import Meta from '../components/Meta'
-import Pagination from '../components/Pagination'
+import PageContainer from '@components/PageContainer'
+import Section from '@components/Section'
+import BlogPostPreview from '@components/BlogPostPreview'
+import ExternalLink from '@components/ExternalLink'
+import StyledLayout from '@components/StyledLayout'
+import Meta from '@components/Meta'
+import Pagination from '@components/Pagination'
 
 const mediumArticles: Array<IMediumArticle> = [
   {

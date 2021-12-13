@@ -1,6 +1,6 @@
 import { Container, Box, Flex } from '@chakra-ui/react'
 
-import { StyledLayoutProps } from '../@types'
+import { StyledLayoutProps } from '@types'
 
 function getLayout(layoutType: string) {
   switch (layoutType) {

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Link as ChakraLink, List, ListItem, Text } from '@chakra-ui/react'
 
-import type { BlogPostPreviewProps } from '../@types'
+import type { BlogPostPreviewProps } from '@types'
 import StyledLayout from './StyledLayout'
 import Tags from './Tags'
 
