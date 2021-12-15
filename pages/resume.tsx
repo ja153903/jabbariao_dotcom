@@ -54,7 +54,7 @@ function Technologies() {
       <ResumeListItem
         title="Libraries and Frameworks"
         items={[
-          'React, Redux, MobX, Express, Prisma',
+          'React, Redux, MobX, Zustand, Prisma',
           'Next.js, Material UI, Chakra UI, Apollo GraphQL',
           'Django, Flask, FastAPI, SQLAlchemy',
           'Spring, Hibernate',
