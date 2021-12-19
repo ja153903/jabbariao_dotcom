@@ -21,10 +21,10 @@ const GITHUB_REPOSITORIES: IRepository[] = [
     language: 'typescript',
   },
   {
-    name: 'advent-of-code',
-    url: 'https://github.com/ja153903/advent-of-code',
-    description: 'Advent of Code 2021 Solutions in TypeScript',
-    language: 'typescript',
+    name: 'problem_solving',
+    url: 'https://github.com/ja153903/problem_solving',
+    description: 'Working on algorithmic problem solving!',
+    language: 'python',
   },
 ]
 
