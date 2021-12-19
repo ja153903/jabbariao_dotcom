@@ -14,13 +14,6 @@ const GITHUB_REPOSITORIES: IRepository[] = [
     language: 'typescript',
   },
   {
-    name: 'leetcode-typescript',
-    url: 'https://github.com/ja153903/leetcode-typescript',
-    description:
-      'Keeping myself sharp by solving LeetCode problems in TypeScript',
-    language: 'typescript',
-  },
-  {
     name: 'problem_solving',
     url: 'https://github.com/ja153903/problem_solving',
     description: 'Working on algorithmic problem solving!',
