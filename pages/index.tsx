@@ -23,8 +23,8 @@ function AboutMe() {
         instead of doing research.
       </Text>
       <Text mb="10px" maxW="xl">
-        These days, you can find me hacking on projects in React, Node, and Deno
-        or hot-swapping themes and plugins for my Neovim editor.
+        These days, you can find me hacking on projects in React, Node, and
+        Python or hot-swapping themes and plugins for my editor.
       </Text>
       <Text maxW="xl">
         I also take photos. You can find my work on{' '}
