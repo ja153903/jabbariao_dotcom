@@ -7,6 +7,12 @@ import Section from '@components/Section'
 
 const GITHUB_REPOSITORIES: IRepository[] = [
   {
+    name: 'nvim',
+    url: 'https://github.com/ja153903/nvim',
+    description: 'My Neovim config written in Lua',
+    language: 'lua',
+  },
+  {
     name: 'jabbariao_dotcom',
     url: 'https://github.com/ja153903/jabbariao_dotcom',
     description:
