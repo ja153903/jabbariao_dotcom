@@ -23,8 +23,9 @@ function AboutMe() {
         instead of doing research.
       </Text>
       <Text mb="10px" maxW="xl">
-        These days, you can find me hacking on projects in React, Node, and
-        Python or hot-swapping themes and plugins for my editor.
+        These days you can find me working on side projects in React, problem
+        solving with Python, and hot-swapping plugins and themes for my Neovim
+        editor.
       </Text>
       <Text maxW="xl">
         I also take photos. You can find my work on{' '}
