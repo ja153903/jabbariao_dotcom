@@ -8,11 +8,11 @@ import { serialize } from 'next-mdx-remote/serialize'
 
 import type { BlogPageProps, BlogContentProps } from '../../types'
 
-import PageContainer from '../../components/PageContainer'
-import Section from '../../components/Section'
-import MDXComponents from '../../components/MDXComponents'
-import NavigationLink from '../../components/NavigationLink'
-import Meta from '../../components/Meta'
+import PageContainer from '@components/PageContainer'
+import Section from '@components/Section'
+import MDXComponents from '@components/MDXComponents'
+import NavigationLink from '@components/NavigationLink'
+import Meta from '@components/Meta'
 
 function BackToList() {
   return (
