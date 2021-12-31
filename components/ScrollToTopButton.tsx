@@ -8,8 +8,7 @@ function ScrollToTopButton() {
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop
     const height = document.documentElement.scrollHeight
-
-    setVisible(scrolled > height / 4)
+    setVisible(scrolled > height / 2)
   }
 
   const handleOnClick = () => {
@@ -23,9 +22,9 @@ function ScrollToTopButton() {
     window.addEventListener('scroll', toggleVisible)
 
     return () => {
-      console.log('unmounting event listener')
+      window.removeEventListener('scroll', toggleVisible)
     }
-  })
+  }, [visible])
 
   return (
     <IconButton
