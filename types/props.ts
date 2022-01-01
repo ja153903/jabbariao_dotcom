@@ -1,5 +1,5 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { IRepository } from '.'
+import { IRepository } from './interfaces'
 import { IBlogPost, IFrontMatter } from './interfaces'
 
 export interface WritingProps {
