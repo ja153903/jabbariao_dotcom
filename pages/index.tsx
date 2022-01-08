@@ -11,7 +11,7 @@ function AboutMe() {
         I am Jaime Abbariao.
       </Text>
       <Text mb="10px" maxW="xl">
-        Currently working as a software engineer at{' '}
+        Currently working as a full-stack software engineer at{' '}
         <Link href="https://getbento.com" color="frost.100" isExternal>
           BentoBox
         </Link>
@@ -19,13 +19,12 @@ function AboutMe() {
       </Text>
       <Text mb="10px" maxW="xl">
         I spent undergrad and grad school figuring out how machine learning
-        works, but in the end, I decided I wanted to build scalable applications
-        instead of doing research.
+        works, but in the end, I decided I wanted to build scalable
+        applications.
       </Text>
       <Text mb="10px" maxW="xl">
-        These days you can find me working on side projects in React, problem
-        solving with Python, and hot-swapping plugins and themes for my Neovim
-        editor.
+        These days you can find me working on JavaScript/TypeScript
+        side-projects and hot-swapping themes and plugins for my Neovim editor.
       </Text>
       <Text maxW="xl">
         I also take photos. You can find my work on{' '}
