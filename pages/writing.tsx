@@ -14,6 +14,7 @@ import StyledLayout from '@components/StyledLayout'
 import Meta from '@components/Meta'
 import Pagination from '@components/Pagination'
 
+// TODO: Move this to a constants folder at some point
 const mediumArticles: Array<IMediumArticle> = [
   {
     url: 'https://javascript.plainenglish.io/resolving-lsps-for-deno-projects-in-neovim-1728583edde9',
