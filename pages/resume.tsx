@@ -45,7 +45,7 @@ function Technologies() {
     <Section title="Technologies I Know">
       <ResumeListItem
         title="Programming Languages"
-        items={['Python, JavaScript, TypeScript', 'Java, Rust, Lua, C']}
+        items={['Python, JavaScript/TypeScript, Rust', 'Java, Lua, C++']}
       />
       <ResumeListItem
         title="Databases"
