@@ -25,6 +25,12 @@ const GITHUB_REPOSITORIES: IRepository[] = [
     description: 'Working on algorithmic problem solving!',
     language: 'python',
   },
+  {
+    name: 'leetdotrs',
+    url: 'https://github.com/ja153903/leetdotrs',
+    description: 'LeetCode Solution in Rust',
+    language: 'rust',
+  },
 ]
 
 function GitHubRepoContainer() {

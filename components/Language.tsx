@@ -5,6 +5,7 @@ const ColorLanguageMap: Map<string, string> = new Map()
 ColorLanguageMap.set('typescript', 'aurora.300')
 ColorLanguageMap.set('lua', 'aurora.400')
 ColorLanguageMap.set('python', 'aurora.100')
+ColorLanguageMap.set('rust', 'aurora.200')
 
 function getColorByLanguage(language: string): string {
   return ColorLanguageMap.get(language) ?? 'aurora.500'
