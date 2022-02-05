@@ -9,7 +9,7 @@ function Experience() {
     <Section title="Experience">
       <ResumeItem
         title="BentoBox"
-        subTitle="Software Engineer II, Mar. 2021 - Present"
+        subTitle="Senior Software Engineer, Mar. 2021 - Present"
         description="Building technology with React and Django to enable restaurants to thrive online"
       />
       <ResumeItem
