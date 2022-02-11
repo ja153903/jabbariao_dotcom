@@ -72,8 +72,8 @@ export interface GitHubRepoProps {
 }
 
 export interface ExternalLinkProps {
-  name: string
-  url: string
+  name?: string
+  url?: string
 }
 
 export interface StyledLayoutProps {

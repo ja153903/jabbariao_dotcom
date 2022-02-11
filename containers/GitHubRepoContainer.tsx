@@ -13,6 +13,11 @@ const GITHUB_REPOSITORIES: IRepository[] = [
     language: 'lua',
   },
   {
+    name: 'everest',
+    description: 'Climbing analytics tool written in TypeScript',
+    language: 'typescript',
+  },
+  {
     name: 'jabbariao_dotcom',
     url: 'https://github.com/ja153903/jabbariao_dotcom',
     description:
@@ -23,13 +28,7 @@ const GITHUB_REPOSITORIES: IRepository[] = [
     name: 'problem_solving',
     url: 'https://github.com/ja153903/problem_solving',
     description: 'Working on algorithmic problem solving!',
-    language: 'python',
-  },
-  {
-    name: 'leetdotrs',
-    url: 'https://github.com/ja153903/leetdotrs',
-    description: 'LeetCode Solution in Rust',
-    language: 'rust',
+    language: 'typescript',
   },
 ]
 

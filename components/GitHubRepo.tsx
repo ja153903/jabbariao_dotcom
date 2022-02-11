@@ -23,7 +23,7 @@ function GitHubRepo({ repository }: GitHubRepoProps) {
       <Text color="snowstorm.100" as="i" mb="15px">
         {description}
       </Text>
-      <Language language={language} />
+      <Language language={language ?? ''} />
     </StyledLayout>
   )
 }

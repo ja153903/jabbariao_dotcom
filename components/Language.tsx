@@ -11,7 +11,7 @@ function getColorByLanguage(language: string): string {
   return ColorLanguageMap.get(language) ?? 'aurora.500'
 }
 
-function Language({ language }: { language: string }) {
+function Language({ language = '' }: { language: string }) {
   return (
     <Box>
       <Icon as={MdCircle} w={3} h={3} color={getColorByLanguage(language)} />{' '}
