@@ -7,14 +7,9 @@ import Section from '@components/Section'
 
 const GITHUB_REPOSITORIES: IRepository[] = [
   {
-    name: 'nvim',
-    url: 'https://github.com/ja153903/nvim',
-    description: 'My Neovim config written in Lua',
-    language: 'lua',
-  },
-  {
-    name: 'everest',
-    description: 'Climbing analytics tool written in TypeScript',
+    name: 'denalgo',
+    url: 'https://github.com/ja153903/denalgo',
+    description: 'Algorithms and Data Structures in TypeScript with Deno',
     language: 'typescript',
   },
   {
@@ -22,12 +17,6 @@ const GITHUB_REPOSITORIES: IRepository[] = [
     url: 'https://github.com/ja153903/jabbariao_dotcom',
     description:
       'Source code for my personal website built with Next.js and Chakra UI',
-    language: 'typescript',
-  },
-  {
-    name: 'problem_solving',
-    url: 'https://github.com/ja153903/problem_solving',
-    description: 'Working on algorithmic problem solving!',
     language: 'typescript',
   },
 ]
